@@ -306,16 +306,6 @@
             border-left-color: var(--warning-orange);
         }
         
-        .used-notice {
-            background: rgba(255, 170, 0, 0.1);
-            border: 1px solid var(--warning-orange);
-            border-radius: 6px;
-            padding: 10px;
-            margin: 15px 0;
-            text-align: center;
-            display: none;
-        }
-        
         .official-footer {
             background: rgba(0, 0, 0, 0.9);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -420,11 +410,6 @@
                 <div class="stat-label">Игровых опытов</div>
                 <div class="stat-change positive">+5M за месяц</div>
             </div>
-        </div>
-        
-        <div class="used-notice" id="used-notice">
-            ❗ <strong>ПРОМОКОД УЖЕ ИСПОЛЬЗОВАН</strong><br>
-            Этот промокод был активирован ранее и больше не действителен.
         </div>
         
         <div class="grid-layout">
@@ -547,15 +532,6 @@
             document.getElementById('current-time').textContent = timeString;
         }
 
-        // Показать уведомление об использовании
-        function showUsedNotice() {
-            if (promoCodeUsed) {
-                document.getElementById('used-notice').style.display = 'block';
-            } else {
-                document.getElementById('used-notice').style.display = 'none';
-            }
-        }
-
         // Обновить историю
         function updateHistory() {
             const container = document.getElementById('history-container');
@@ -666,7 +642,6 @@
             localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
 
             updateHistory();
-            showUsedNotice();
             document.getElementById('promo-input').value = '';
         });
 
@@ -674,7 +649,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateTime();
             updateStats(); // Инициализация статистики
-            showUsedNotice();
             updateHistory();
             
             // Обновлять время каждую минуту
