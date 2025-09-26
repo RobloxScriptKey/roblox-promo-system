@@ -97,6 +97,47 @@
             flex-shrink: 0;
         }
         
+        .stats-container {
+            background: rgba(0, 162, 255, 0.1);
+            border: 1px solid var(--roblox-blue);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: var(--roblox-blue);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+        
+        .stat-change {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        
+        .positive {
+            color: var(--success-green);
+        }
+        
+        .negative {
+            color: var(--error-red);
+        }
+        
         .main-container {
             max-width: 1200px;
             margin: 30px auto;
@@ -128,6 +169,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .stats-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
             .header-content {
                 flex-direction: column;
                 gap: 10px;
@@ -149,6 +195,10 @@
             
             .logo-text {
                 font-size: 1.5em;
+            }
+            
+            .stat-number {
+                font-size: 1.8em;
             }
         }
         
@@ -343,6 +393,30 @@
             </div>
         </div>
         
+        <!-- Статистика Roblox -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" id="total-users">1.2B+</div>
+                <div class="stat-label">Всего пользователей</div>
+                <div class="stat-change positive">+15.7% за год</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="online-now">7.8M</div>
+                <div class="stat-label">Сейчас онлайн</div>
+                <div class="stat-change" id="online-change">↗ Активно</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="daily-active">67.3M</div>
+                <div class="stat-label">Ежедневно активных</div>
+                <div class="stat-change positive">+22% за квартал</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="games-count">40M+</div>
+                <div class="stat-label">Игровых опытов</div>
+                <div class="stat-change positive">+5M за месяц</div>
+            </div>
+        </div>
+        
         <div class="used-notice" id="used-notice">
             ❗ <strong>ПРОМОКОД УЖЕ ИСПОЛЬЗОВАН</strong><br>
             Этот промокод был активирован ранее и больше не действителен.
@@ -430,6 +504,36 @@
 
         let activationHistory = JSON.parse(localStorage.getItem('promoHistory')) || [];
         let promoCodeUsed = localStorage.getItem('promoUsed') === 'true';
+
+        // Функция для генерации случайного числа онлайн
+        function getRandomOnline() {
+            const base = 7000000; // 7 миллионов база
+            const random = Math.floor(Math.random() * 3000000) + 500000; // +0.5-3.5 млн
+            return (base + random).toLocaleString('ru-RU');
+        }
+
+        // Функция для обновления статистики
+        function updateStats() {
+            const onlineElement = document.getElementById('online-now');
+            const changeElement = document.getElementById('online-change');
+            
+            const onlineCount = getRandomOnline();
+            onlineElement.textContent = onlineCount;
+            
+            // Случайное изменение статуса
+            const changes = ['↗ Активно', '↗ Растет', '→ Стабильно', '↘ Снижается'];
+            const randomChange = changes[Math.floor(Math.random() * changes.length)];
+            changeElement.textContent = randomChange;
+            
+            // Меняем цвет в зависимости от статуса
+            if (randomChange.includes('↗')) {
+                changeElement.className = 'stat-change positive';
+            } else if (randomChange.includes('↘')) {
+                changeElement.className = 'stat-change negative';
+            } else {
+                changeElement.className = 'stat-change';
+            }
+        }
 
         // Обновление времени
         function updateTime() {
@@ -564,10 +668,15 @@
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
             updateTime();
+            updateStats(); // Инициализация статистики
             showUsedNotice();
             updateHistory();
             
+            // Обновлять время каждую минуту
             setInterval(updateTime, 60000);
+            
+            // Обновлять статистику онлайн каждые 30 секунд
+            setInterval(updateStats, 30000);
         });
     </script>
 </body>
