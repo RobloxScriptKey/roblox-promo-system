@@ -39,6 +39,12 @@
             margin-bottom: 10px;
         }
         
+        .site-url {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        
         h1 {
             font-size: 24px;
             font-weight: 600;
@@ -98,7 +104,7 @@
             border: none;
             padding: 12px;
             font-size: 16px;
-            fontWeight: 600;
+            font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
             margin-top: 15px;
@@ -134,49 +140,36 @@
         }
         
         .footer-links {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             margin-bottom: 20px;
         }
         
-        .footer-link-group {
-            display: flex;
-            justify-content: space-between;
+        .footer-column strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
         }
         
-        .footer-link-column {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        
-        .footer-link-column a {
+        .footer-column a {
             color: #666;
             text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
         }
         
-        .language-section {
+        .language-selector {
             margin: 20px 0;
-            padding: 15px 0;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
+            position: relative;
         }
         
-        .language-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .languages {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .language {
-            color: #00a2ff;
-            text-decoration: none;
+        .language-dropdown {
+            width: 200px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
             font-size: 12px;
         }
         
@@ -218,12 +211,19 @@
             border: 1px solid #f5c6cb;
             color: #721c24;
         }
+        
+        .language-note {
+            font-size: 11px;
+            color: #999;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">ROBLOX</div>
+            <div class="logo">Роблокс</div>
+            <div class="site-url">roblox.com</div>
         </div>
         
         <h1>Активировать коды Roblox</h1>
@@ -262,50 +262,44 @@
         
         <div class="divider"></div>
         
-        <div class="language-section">
-            <div class="language-title">Языки</div>
-            <div class="languages">
-                <a href="#" class="language">Bahasa Indonesia</a>
-                <a href="#" class="language">Deutsch</a>
-                <a href="#" class="language">English</a>
-                <a href="#" class="language">Español</a>
-                <a href="#" class="language">Français</a>
-                <a href="#" class="language">Italiano</a>
-            </div>
-        </div>
-        
         <div class="footer">
             <div class="footer-links">
-                <div class="footer-link-group">
-                    <div class="footer-link-column">
-                        <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
-                    </div>
-                    <div class="footer-link-column">
-                        <a href="https://en.help.roblox.com/hc/articles/212459606" target="_blank">Ваш выбор конфиденциальности</a>
-                    </div>
+                <div class="footer-column">
+                    <strong>О нас</strong>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                    <a href="https://blog.roblox.com" target="_blank">Блог</a>
+                    <a href="https://corp.roblox.com/parents/" target="_blank">Варианты</a>
                 </div>
-                
-                <div class="footer-link-group">
-                    <div class="footer-link-column">
-                        <a href="https://www.roblox.com/giftcards" target="_blank">Подарочные карты</a>
-                    </div>
-                    <div class="footer-link-column">
-                        <a href="https://en.help.roblox.com/hc/articles/212459606" target="_blank">Ваш выбор конфиденциальности</a>
-                    </div>
-                </div>
-                
-                <div class="footer-link-group">
-                    <div class="footer-link-column">
-                        <a href="https://en.help.roblox.com/hc" target="_blank">Помощь</a>
-                    </div>
-                    <div class="footer-link-column">
-                        <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Карта сайта</a>
-                    </div>
+                <div class="footer-column">
+                    <strong>Условия</strong>
+                    <a href="https://en.help.roblox.com/hc/articles/360000242306" target="_blank">Доступность</a>
+                    <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Конфиденциальность</a>
                 </div>
             </div>
             
+            <div class="language-selector">
+                <select class="language-dropdown" id="language-select">
+                    <option value="ru" selected>Русский*</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="de">Deutsch</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="ko">한국어</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">中文</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="pl">Polski</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="sv">Svenska</option>
+                </select>
+                <div class="language-note">*Выбранный язык</div>
+            </div>
+            
             <div class="footer-bottom">
-                <a href="#">Pycский®</a> | ©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.
+                ©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.
             </div>
         </div>
     </div>
@@ -369,6 +363,12 @@
             }
 
             codeInput.value = '';
+        });
+
+        // Обработка выбора языка
+        document.getElementById('language-select').addEventListener('change', function() {
+            // Здесь можно добавить логику смены языка
+            console.log('Выбран язык:', this.value);
         });
     </script>
 </body>
