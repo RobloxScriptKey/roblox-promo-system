@@ -288,6 +288,22 @@
             border-radius: 6px;
             text-align: center;
             font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .reward-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .reward-link.primary {
+            background: linear-gradient(135deg, var(--success-green) 0%, #00aa55 100%);
+            font-size: 1.1em;
+            padding: 15px;
+        }
+        
+        .reward-link.secondary {
+            background: linear-gradient(135deg, var(--roblox-blue) 0%, #0077cc 100%);
         }
         
         .history-item {
@@ -481,14 +497,14 @@
 
     <script>
         // Секретный промокод
-        const SECRET_PROMO_CODE = "ROBZI2024";
+        const SECRET_PROMO_CODE = "MILEDI STORE";
         
         // Награда за промокод
         const PROMO_REWARD = {
-            reward: "Эксклюзивный файл с гайдом",
+            reward: "Эксклюзивный бонус от MILEDI STORE",
             links: [
-                {text: "📥 СКАЧАТЬ ФАЙЛ", url: "https://drive.google.com/file/d/1fSeKGQrkFYeV_5sUwFTGY0od896oq5lS/view?usp=drive_link"},
-                {text: "📖 ГАЙД НА ФАЙЛ", url: "https://drive.google.com/file/d/10lCHjf6oZsN_FmHqR2ZeNNBkh4D5yTRl/view"}
+                {text: "🎁 ПОЛУЧИТЬ БОНУС", url: "https://wdho.ru/7Wvm", class: "primary"},
+                {text: "🔰 ПОДДЕРЖКА 24/7", url: "https://playerok.com/profile/MILEDI-STORE/products", class: "secondary"}
             ]
         };
 
@@ -571,7 +587,7 @@
             if (links && type === 'success') {
                 let linksHTML = '';
                 links.forEach(link => {
-                    linksHTML += `<a href="${link.url}" class="reward-link" target="_blank">${link.text}</a>`;
+                    linksHTML += `<a href="${link.url}" class="reward-link ${link.class}" target="_blank">${link.text}</a>`;
                 });
                 linksElem.innerHTML = linksHTML;
             } else {
