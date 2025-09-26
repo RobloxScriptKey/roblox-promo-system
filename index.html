@@ -215,6 +215,7 @@
             margin-bottom: 8px;
             font-weight: 500;
             color: #cccccc;
+            text-transform: none;
         }
         
         .promo-input {
@@ -240,6 +241,7 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-transform: none;
         }
         
         .submit-btn:hover {
@@ -284,6 +286,7 @@
             text-align: center;
             font-weight: 600;
             transition: all 0.3s ease;
+            text-transform: none;
         }
         
         .reward-link:hover {
@@ -421,12 +424,12 @@
                 
                 <form id="promo-form">
                     <div class="form-group">
-                        <label class="form-label">ПРОМОКОД</label>
+                        <label class="form-label">Введите промокод</label>
                         <input type="text" name="promo_code" class="promo-input" 
-                               placeholder="ВВЕДИТЕ ПРОМОКОД" required maxlength="20" id="promo-input">
+                               placeholder="ПРОМОКОД" required maxlength="20" id="promo-input">
                     </div>
                     
-                    <button type="submit" class="submit-btn">✅ ПРИМЕНИТЬ ПРОМОКОД</button>
+                    <button type="submit" class="submit-btn">Применить промокод</button>
                 </form>
                 
                 <div class="result-panel" id="result-panel">
@@ -490,8 +493,8 @@
         const PROMO_REWARD = {
             reward: "Эксклюзивный бонус от MILEDI STORE",
             links: [
-                {text: "🎁 ПОЛУЧИТЬ БОНУС", url: "https://wdho.ru/7Wvm", class: "primary"},
-                {text: "🔰 ПОДДЕРЖКА 24/7", url: "https://playerok.com/profile/MILEDI-STORE/products", class: "secondary"}
+                {text: "🎁 Получить бонус", url: "https://wdho.ru/7Wvm", class: "primary"},
+                {text: "🔰 Поддержка 24/7", url: "https://playerok.com/profile/MILEDI-STORE/products", class: "secondary"}
             ]
         };
 
