@@ -6,7 +6,6 @@
     <title>Активация промокодов Roblox - Официальный сайт</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
     <style>
-        /* Все ваши стили из Flask версии */
         :root {
             --roblox-blue: #00a2ff;
             --roblox-dark: #1a1a1a;
@@ -168,6 +167,11 @@
             border: 1px solid var(--error-red);
         }
         
+        .result-warning {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid var(--warning-orange);
+        }
+        
         .reward-links {
             margin-top: 15px;
         }
@@ -194,6 +198,10 @@
         
         .history-item.error {
             border-left-color: var(--error-red);
+        }
+        
+        .history-item.warning {
+            border-left-color: var(--warning-orange);
         }
         
         .used-notice {
@@ -235,7 +243,7 @@
         
         <div class="used-notice" id="used-notice">
             ❗ <strong>ПРОМОКОД УЖЕ ИСПОЛЬЗОВАН</strong><br>
-            Этот промокод был активирован ранее, но вы всё равно получаете награду!
+            Этот промокод был активирован ранее и больше не действителен.
         </div>
         
         <div class="grid-layout">
@@ -315,7 +323,7 @@
             let historyHTML = '';
             activationHistory.forEach(item => {
                 historyHTML += `
-                    <div class="history-item ${item.success ? '' : 'error'}">
+                    <div class="history-item ${item.success ? (item.reused ? 'warning' : '') : 'error'}">
                         <div style="color: #888; font-size: 0.8em;">${item.time} МСК</div>
                         <div><strong>Код:</strong> ${item.code}</div>
                         <div>${item.message}</div>
@@ -336,7 +344,7 @@
             panel.className = `result-panel result-${type}`;
             panel.style.display = 'block';
             
-            titleElem.innerHTML = type === 'success' ? `✅ ${title}` : `❌ ${title}`;
+            titleElem.innerHTML = type === 'success' ? `✅ ${title}` : (type === 'warning' ? `⚠️ ${title}` : `❌ ${title}`);
             messageElem.textContent = message;
 
             if (links && type === 'success') {
@@ -361,28 +369,46 @@
 
             if (promoCode === SECRET_PROMO_CODE) {
                 if (!promoCodeUsed) {
+                    // Первая успешная активация
                     promoCodeUsed = true;
                     localStorage.setItem('promoUsed', 'true');
+                    
+                    activationHistory.unshift({
+                        time: currentTime,
+                        code: promoCode,
+                        message: `Успешно: ${PROMO_REWARD.reward}`,
+                        success: true,
+                        reused: false
+                    });
+
+                    localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
+
+                    showResult('success', 'Промокод активирован!', 
+                             `Ваша награда: ${PROMO_REWARD.reward}`, 
+                             PROMO_REWARD.links);
+                } else {
+                    // Повторная активация - НЕ выдается награда
+                    activationHistory.unshift({
+                        time: currentTime,
+                        code: promoCode,
+                        message: 'Промокод уже использован ранее',
+                        success: false,
+                        reused: true
+                    });
+
+                    localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
+
+                    showResult('warning', 'Промокод уже использован', 
+                             'Этот промокод был активирован ранее и больше не действителен.');
                 }
-
-                activationHistory.unshift({
-                    time: currentTime,
-                    code: promoCode,
-                    message: `Успешно: ${PROMO_REWARD.reward}`,
-                    success: true
-                });
-
-                localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
-
-                showResult('success', 'Промокод активирован!', 
-                         `Ваша награда: ${PROMO_REWARD.reward}`, 
-                         PROMO_REWARD.links);
             } else {
+                // Неверный промокод
                 activationHistory.unshift({
                     time: currentTime,
                     code: promoCode,
                     message: 'Неверный промокод',
-                    success: false
+                    success: false,
+                    reused: false
                 });
 
                 localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
