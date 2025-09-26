@@ -33,23 +33,12 @@
         }
         
         .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #00a2ff;
-            margin-bottom: 10px;
-            /* Альтернатива: используем текстовый логотип */
-        }
-        
-        .logo-img {
             width: 120px;
             height: 40px;
             margin: 0 auto 10px;
-            /* Пробуем разные источники логотипа */
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiB2aWV3Qm94PSIwIDAgMTIwIDQwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjMDBBMUZGIi8+Cjx0ZXh0IHg9IjYwIiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+Um9ibG94PC90ZXh0Pgo8L3N2Zz4K');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            display: none; /* Сначала скрываем */
         }
         
         .site-url {
@@ -275,10 +264,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <!-- Текстовый логотип как запасной вариант -->
-            <div class="logo">Roblox</div>
-            <!-- Попытка с SVG через data URI -->
-            <div class="logo-img"></div>
+            <!-- Замените ссылку ниже на прямую ссылку на вашу фотографию -->
+            <div class="logo" style="background-image: url('https://example.com/your-photo.jpg')"></div>
             <div class="site-url">roblox.com</div>
         </div>
         
@@ -431,29 +418,7 @@
 
         // Обработка выбора языка
         document.getElementById('language-select').addEventListener('change', function() {
-            // Здесь можно добавить логику смены языка
             console.log('Выбран язык:', this.value);
-            // В реальном приложении здесь была бы перезагрузка страницы с новым языком
-        });
-
-        // Проверка загрузки изображения логотипа
-        window.addEventListener('load', function() {
-            const logoImg = document.querySelector('.logo-img');
-            const textLogo = document.querySelector('.logo');
-            
-            // Проверяем, загрузилось ли изображение
-            const img = new Image();
-            img.onload = function() {
-                // Если изображение загрузилось, показываем его и скрываем текстовый логотип
-                logoImg.style.display = 'block';
-                textLogo.style.display = 'none';
-            };
-            img.onerror = function() {
-                // Если изображение не загрузилось, оставляем текстовый логотип
-                logoImg.style.display = 'none';
-                textLogo.style.display = 'block';
-            };
-            img.src = 'https://images.rbxcdn.com/6c83d93033d0a61d9e1e5d6e2c5d4e92.svg';
         });
     </script>
 </body>
