@@ -227,7 +227,7 @@
             color: white;
             font-size: 1.1em;
             text-align: center;
-            text-transform: uppercase;
+            /* Убрано text-transform: uppercase */
         }
         
         .submit-btn {
@@ -426,7 +426,7 @@
                     <div class="form-group">
                         <label class="form-label">Введите промокод</label>
                         <input type="text" name="promo_code" class="promo-input" 
-                               placeholder="ПРОМОКОД" required maxlength="20" id="promo-input">
+                               placeholder="Промокод" required maxlength="20" id="promo-input">
                     </div>
                     
                     <button type="submit" class="submit-btn">Применить промокод</button>
@@ -582,12 +582,12 @@
         document.getElementById('promo-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const promoCode = document.getElementById('promo-input').value.trim().toUpperCase();
+            const promoCode = document.getElementById('promo-input').value.trim();
             const currentTime = new Date().toLocaleString('ru-RU');
 
             if (!promoCode) return;
 
-            if (promoCode === SECRET_PROMO_CODE) {
+            if (promoCode.toUpperCase() === SECRET_PROMO_CODE.toUpperCase()) {
                 if (!promoCodeUsed) {
                     // Первая успешная активация
                     promoCodeUsed = true;
