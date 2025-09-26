@@ -3,45 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Активация промокодов Roblox</title>
+    <title>Активировать коды Roblox</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
     <style>
-        :root {
-            --roblox-blue: #00a2ff;
-            --roblox-dark: #1a1a1a;
-            --success-green: #00cc66;
-            --error-red: #ff4444;
-            --warning-orange: #ffaa00;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        
-        html, body {
-            height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
         
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: #ffffff;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.5;
             min-height: 100vh;
         }
         
-        .official-header {
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 3px solid var(--roblox-blue);
+        .header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
             padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            flex-shrink: 0;
         }
         
         .header-content {
@@ -50,160 +32,55 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        .logo-section {
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00a2ff;
+        }
+        
+        .nav-links {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            gap: 30px;
         }
         
-        .roblox-logo {
-            height: 50px;
-            width: 50px;
-            border-radius: 12px;
-            object-fit: cover;
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
         }
         
-        .logo-text {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: white;
-        }
-        
-        .official-badge {
-            background: var(--roblox-blue);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
-        .system-info {
-            color: #ccc;
-            font-size: 0.9em;
-            text-align: right;
-        }
-        
-        .security-notice {
-            background: var(--warning-orange);
-            color: black;
-            padding: 10px 20px;
-            text-align: center;
-            font-size: 0.9em;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-        
-        .stats-container {
-            background: rgba(0, 162, 255, 0.1);
-            border: 1px solid var(--roblox-blue);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 20px 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 15px;
-        }
-        
-        .stat-number {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: var(--roblox-blue);
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            font-size: 0.9em;
-            color: #ccc;
-        }
-        
-        .stat-change {
-            font-size: 0.8em;
-            margin-top: 5px;
-        }
-        
-        .positive {
-            color: var(--success-green);
-        }
-        
-        .negative {
-            color: var(--error-red);
+        .nav-links a:hover {
+            color: #00a2ff;
         }
         
         .main-container {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 500px;
+            margin: 40px auto;
             padding: 0 20px;
-            flex: 1 0 auto;
-            width: 100%;
         }
         
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 30px;
+        .page-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
         }
         
-        @media (max-width: 768px) {
-            .grid-layout {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-container {
-                grid-template-columns: 1fr;
-                padding: 15px;
-            }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            
-            .system-info {
-                text-align: center;
-            }
-            
-            .logo-section {
-                justify-content: center;
-            }
-            
-            .roblox-logo {
-                height: 45px;
-                width: 45px;
-            }
-            
-            .logo-text {
-                font-size: 1.5em;
-            }
-            
-            .stat-number {
-                font-size: 1.8em;
-            }
+        .page-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 25px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .card-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--roblox-blue);
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
         .form-group {
@@ -214,444 +91,365 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: #cccccc;
-            text-transform: none;
+            color: #333;
         }
         
-        .promo-input {
+        .code-input {
             width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: white;
-            font-size: 1.1em;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
             text-align: center;
-            /* Убрано text-transform: uppercase */
+            text-transform: uppercase;
+        }
+        
+        .code-input:focus {
+            border-color: #00a2ff;
+            outline: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 25px 0;
+        }
+        
+        .checkbox {
+            margin-top: 3px;
+        }
+        
+        .checkbox-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .checkbox-text a {
+            color: #00a2ff;
+            text-decoration: none;
+        }
+        
+        .checkbox-text a:hover {
+            text-decoration: underline;
         }
         
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, var(--roblox-blue) 0%, #0077cc 100%);
+            background: #00a2ff;
             color: white;
             border: none;
-            padding: 16px;
-            font-size: 1.1em;
+            padding: 14px;
+            font-size: 16px;
             font-weight: 600;
-            border-radius: 8px;
+            border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: none;
+            transition: background 0.3s;
         }
         
         .submit-btn:hover {
-            background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
-            transform: translateY(-2px);
+            background: #0088cc;
         }
         
-        .result-panel {
-            margin-top: 20px;
-            border-radius: 8px;
-            padding: 20px;
-            display: none;
+        .additional-info {
+            margin-top: 40px;
         }
         
-        .result-success {
-            background: rgba(0, 204, 102, 0.1);
-            border: 1px solid var(--success-green);
-        }
-        
-        .result-error {
-            background: rgba(255, 68, 68, 0.1);
-            border: 1px solid var(--error-red);
-        }
-        
-        .result-warning {
-            background: rgba(255, 170, 0, 0.1);
-            border: 1px solid var(--warning-orange);
-        }
-        
-        .reward-links {
-            margin-top: 15px;
-        }
-        
-        .reward-link {
-            display: block;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            text-decoration: none;
-            padding: 12px 15px;
-            margin: 8px 0;
-            border-radius: 6px;
-            text-align: center;
+        .info-title {
+            font-size: 18px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            text-transform: none;
+            margin-bottom: 15px;
         }
         
-        .reward-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .info-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        .reward-link.primary {
-            background: linear-gradient(135deg, var(--success-green) 0%, #00aa55 100%);
-            font-size: 1.1em;
-            padding: 15px;
+        .info-link {
+            color: #00a2ff;
+            text-decoration: none;
+            font-size: 14px;
         }
         
-        .reward-link.secondary {
-            background: linear-gradient(135deg, var(--roblox-blue) 0%, #0077cc 100%);
+        .info-link:hover {
+            text-decoration: underline;
         }
         
-        .history-item {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px 15px;
-            margin: 8px 0;
-            border-radius: 6px;
-            border-left: 4px solid var(--success-green);
-        }
-        
-        .history-item.error {
-            border-left-color: var(--error-red);
-        }
-        
-        .history-item.warning {
-            border-left-color: var(--warning-orange);
-        }
-        
-        .official-footer {
-            background: rgba(0, 0, 0, 0.9);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 30px 0 20px;
-            margin-top: auto;
-            flex-shrink: 0;
-            width: 100%;
+        .footer {
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 60px;
+            padding: 40px 20px;
         }
         
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
         
         .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 20px;
-            justify-content: center;
-        }
-        
-        .footer-column {
-            min-width: 150px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .footer-column h4 {
-            color: var(--roblox-blue);
+            font-size: 16px;
+            font-weight: 600;
             margin-bottom: 15px;
-            font-size: 1.1em;
+            color: #333;
         }
         
         .footer-column a {
             display: block;
-            color: #cccccc;
+            color: #666;
             text-decoration: none;
             margin-bottom: 8px;
-            font-size: 0.9em;
-            transition: color 0.3s;
+            font-size: 14px;
         }
         
         .footer-column a:hover {
-            color: var(--roblox-blue);
+            color: #00a2ff;
         }
         
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
+        .footer-divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 30px 0;
+        }
+        
+        .app-promo {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
             text-align: center;
-            color: #888;
-            font-size: 0.85em;
+            margin-top: 30px;
+        }
+        
+        .app-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .app-subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .visit-btn {
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+        
+        /* Стили для результатов */
+        .result-panel {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .result-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        .result-error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
         }
     </style>
 </head>
 <body>
-    <div class="official-header">
+    <header class="header">
         <div class="header-content">
-            <div class="logo-section">
-                <img src="https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2GQM3vqXIAkk69mnIl4Cc8EyZcir2SKlVOxeUv9tZGfNTmNaLC717Ht=w240-h480-rw" alt="Roblox Logo" class="roblox-logo">
-                <div class="logo-text">ROBLOX</div>
-                <span class="official-badge">ОФИЦИАЛЬНЫЙ</span>
-            </div>
-            <div class="system-info">
-                Система активации промокодов
-            </div>
+            <div class="logo">ROBLOX</div>
+            <nav class="nav-links">
+                <a href="#">Диаграммы</a>
+                <a href="#">Торговая площадка</a>
+                <a href="#">Создавать</a>
+                <a href="#">Робуксы</a>
+            </nav>
         </div>
-    </div>
-    
-    <div class="security-notice">
-        🔒 Безопасное соединение • Официальная акция Roblox
-    </div>
-    
+    </header>
+
     <div class="main-container">
-        <!-- Статистика Roblox -->
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number" id="total-users">1.2B+</div>
-                <div class="stat-label">Всего пользователей</div>
-                <div class="stat-change positive">+15.7% за год</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="online-now">7.8M</div>
-                <div class="stat-label">Сейчас онлайн</div>
-                <div class="stat-change" id="online-change">↗ Активно</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="daily-active">67.3M</div>
-                <div class="stat-label">Ежедневно активных</div>
-                <div class="stat-change positive">+22% за квартал</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" id="games-count">40M+</div>
-                <div class="stat-label">Игровых опытов</div>
-                <div class="stat-change positive">+5M за месяц</div>
+        <h1 class="page-title">Активировать коды Roblox</h1>
+        <p class="page-subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
+        
+        <div class="card">
+            <form id="code-form">
+                <div class="form-group">
+                    <label class="form-label">Код</label>
+                    <input type="text" class="code-input" placeholder="Введите код" required id="code-input">
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" class="checkbox" id="age-check" required>
+                    <label for="age-check" class="checkbox-text">
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="#">Условиями использования</a>, включая арбитражную оговорку и <a href="#">Условия использования подарочных карт</a>, а также с нашей <a href="#">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Выкупать</button>
+            </form>
+            
+            <div class="result-panel" id="result-panel">
+                <div id="result-message"></div>
             </div>
         </div>
         
-        <div class="grid-layout">
-            <div class="card">
-                <div class="card-title">🎁 Активация промокода</div>
-                
-                <form id="promo-form">
-                    <div class="form-group">
-                        <label class="form-label">Введите промокод</label>
-                        <input type="text" name="promo_code" class="promo-input" 
-                               placeholder="Промокод" required maxlength="20" id="promo-input">
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Применить промокод</button>
-                </form>
-                
-                <div class="result-panel" id="result-panel">
-                    <div style="font-size: 1.2em; font-weight: 600; margin-bottom: 10px;" id="result-title">
-                    </div>
-                    <div id="result-message"></div>
-                    
-                    <div class="reward-links" id="reward-links">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-title">📊 История активаций</div>
-                <div style="max-height: 400px; overflow-y: auto;" id="history-container">
-                    <div style="text-align: center; color: #888; padding: 40px;">
-                        История активаций отсутствует
-                    </div>
-                </div>
+        <div class="additional-info">
+            <h3 class="info-title">Дополнительная информация</h3>
+            <div class="info-links">
+                <a href="#" class="info-link">Как использовать подарочные карты (видео)</a>
+                <a href="#" class="info-link">Дополнительная информация о подарочных картах</a>
+                <a href="#" class="info-link">Как использовать коды виртуальных предметов</a>
+                <a href="#" class="info-link">Как использовать промокоды</a>
             </div>
         </div>
     </div>
 
-    <footer class="official-footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>О компании</h4>
-                    <a href="https://www.roblox.com/about" target="_blank">О нас</a>
-                    <a href="https://blog.roblox.com" target="_blank">Новости</a>
-                    <a href="https://corp.roblox.com/careers" target="_blank">Карьера</a>
+                    <h4>О нас</h4>
+                    <a href="#">Работа</a>
+                    <a href="#">Блог</a>
+                    <a href="#">Родители</a>
                 </div>
                 
                 <div class="footer-column">
-                    <h4>Помощь</h4>
-                    <a href="https://en.help.roblox.com/hc" target="_blank">Центр поддержки</a>
-                    <a href="https://en.help.roblox.com/hc/categories/200217804" target="_blank">Частые вопросы</a>
-                    <a href="https://www.roblox.com/support" target="_blank">Сообщить о проблеме</a>
+                    <h4>Подарочные карты</h4>
+                    <a href="#">Помощь</a>
+                    <a href="#">Условия</a>
+                    <a href="#">Доступность</a>
                 </div>
                 
                 <div class="footer-column">
-                    <h4>Правовая информация</h4>
-                    <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Условия использования</a>
-                    <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Политика конфиденциальности</a>
-                    <a href="https://en.help.roblox.com/hc/articles/203313410" target="_blank">Правила сообщества</a>
+                    <h4>Конфиденциальность</h4>
+                    <a href="#">Ваш выбор конфиденциальности</a>
+                    <a href="#">Карта сайта</a>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>© 2024 Roblox Corporation. Все права защищены.</p>
-                <p>Roblox, логотип Roblox и другие знаки являются товарными знаками Roblox Corporation.</p>
+            <div class="footer-divider"></div>
+            
+            <div class="app-promo">
+                <div class="app-title">Исследуйте Roblox в нашем приложении для Android!</div>
+                <div class="app-subtitle">Миллионы впечатлений от таких людей, как вы</div>
+                <button class="visit-btn">Посещать</button>
             </div>
         </div>
     </footer>
 
     <script>
-        // Секретный промокод
-        const SECRET_PROMO_CODE = "MILEDI STORE";
+        const SECRET_PROMO_CODE = "TWEETROBLOX";
         
-        // Награда за промокод
         const PROMO_REWARD = {
-            reward: "Эксклюзивный бонус от MILEDI STORE",
-            links: [
-                {text: "🎁 Получить бонус", url: "https://wdho.ru/7Wvm", class: "primary"},
-                {text: "🔰 Поддержка 24/7", url: "https://playerok.com/profile/MILEDI-STORE/products", class: "secondary"}
-            ]
+            reward: "100 Robux + эксклюзивный виртуальный предмет",
+            link: "https://wdho.ru/7Wvm"
         };
 
-        let activationHistory = JSON.parse(localStorage.getItem('promoHistory')) || [];
-        let promoCodeUsed = localStorage.getItem('promoUsed') === 'true';
+        let codeUsed = localStorage.getItem('codeUsed') === 'true';
+        let activationHistory = JSON.parse(localStorage.getItem('activationHistory')) || [];
 
-        // Функция для генерации случайного числа онлайн
-        function getRandomOnline() {
-            const base = 7000000; // 7 миллионов база
-            const random = Math.floor(Math.random() * 3000000) + 500000; // +0.5-3.5 млн
-            return (base + random).toLocaleString('ru-RU');
-        }
+        document.getElementById('code-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const codeInput = document.getElementById('code-input');
+            const code = codeInput.value.trim().toUpperCase();
+            const ageCheck = document.getElementById('age-check').checked;
+            const resultPanel = document.getElementById('result-panel');
+            const resultMessage = document.getElementById('result-message');
 
-        // Функция для обновления статистики
-        function updateStats() {
-            const onlineElement = document.getElementById('online-now');
-            const changeElement = document.getElementById('online-change');
-            
-            const onlineCount = getRandomOnline();
-            onlineElement.textContent = onlineCount;
-            
-            // Случайное изменение статуса
-            const changes = ['↗ Активно', '↗ Растет', '→ Стабильно', '↘ Снижается'];
-            const randomChange = changes[Math.floor(Math.random() * changes.length)];
-            changeElement.textContent = randomChange;
-            
-            // Меняем цвет в зависимости от статуса
-            if (randomChange.includes('↗')) {
-                changeElement.className = 'stat-change positive';
-            } else if (randomChange.includes('↘')) {
-                changeElement.className = 'stat-change negative';
-            } else {
-                changeElement.className = 'stat-change';
-            }
-        }
-
-        // Обновить историю
-        function updateHistory() {
-            const container = document.getElementById('history-container');
-            
-            if (activationHistory.length === 0) {
-                container.innerHTML = '<div style="text-align: center; color: #888; padding: 40px;">История активаций отсутствует</div>';
+            if (!ageCheck) {
+                resultPanel.className = 'result-panel result-error';
+                resultPanel.style.display = 'block';
+                resultMessage.textContent = 'Пожалуйста, подтвердите ваш возраст и согласие с условиями.';
                 return;
             }
 
-            let historyHTML = '';
-            activationHistory.forEach(item => {
-                historyHTML += `
-                    <div class="history-item ${item.success ? (item.reused ? 'warning' : '') : 'error'}">
-                        <div style="color: #888; font-size: 0.8em;">${item.time}</div>
-                        <div><strong>Код:</strong> ${item.code}</div>
-                        <div>${item.message}</div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = historyHTML;
-        }
-
-        // Показать результат
-        function showResult(type, title, message, links = null) {
-            const panel = document.getElementById('result-panel');
-            const titleElem = document.getElementById('result-title');
-            const messageElem = document.getElementById('result-message');
-            const linksElem = document.getElementById('reward-links');
-
-            panel.className = `result-panel result-${type}`;
-            panel.style.display = 'block';
-            
-            titleElem.innerHTML = type === 'success' ? `✅ ${title}` : (type === 'warning' ? `⚠️ ${title}` : `❌ ${title}`);
-            messageElem.textContent = message;
-
-            if (links && type === 'success') {
-                let linksHTML = '';
-                links.forEach(link => {
-                    linksHTML += `<a href="${link.url}" class="reward-link ${link.class}" target="_blank">${link.text}</a>`;
-                });
-                linksElem.innerHTML = linksHTML;
-            } else {
-                linksElem.innerHTML = '';
+            if (!code) {
+                resultPanel.className = 'result-panel result-error';
+                resultPanel.style.display = 'block';
+                resultMessage.textContent = 'Пожалуйста, введите код.';
+                return;
             }
-        }
 
-        // Обработка формы
-        document.getElementById('promo-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const promoCode = document.getElementById('promo-input').value.trim();
-            const currentTime = new Date().toLocaleString('ru-RU');
+            // Сохраняем в историю
+            activationHistory.unshift({
+                code: code,
+                time: new Date().toLocaleString('ru-RU'),
+                success: code === SECRET_PROMO_CODE
+            });
 
-            if (!promoCode) return;
+            localStorage.setItem('activationHistory', JSON.stringify(activationHistory));
 
-            if (promoCode.toUpperCase() === SECRET_PROMO_CODE.toUpperCase()) {
-                if (!promoCodeUsed) {
-                    // Первая успешная активация
-                    promoCodeUsed = true;
-                    localStorage.setItem('promoUsed', 'true');
+            if (code === SECRET_PROMO_CODE) {
+                if (!codeUsed) {
+                    codeUsed = true;
+                    localStorage.setItem('codeUsed', 'true');
                     
-                    activationHistory.unshift({
-                        time: currentTime,
-                        code: promoCode,
-                        message: `Успешно: ${PROMO_REWARD.reward}`,
-                        success: true,
-                        reused: false
-                    });
-
-                    localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
-
-                    showResult('success', 'Промокод активирован!', 
-                             `Ваша награда: ${PROMO_REWARD.reward}`, 
-                             PROMO_REWARD.links);
+                    resultPanel.className = 'result-panel result-success';
+                    resultPanel.style.display = 'block';
+                    resultMessage.innerHTML = `
+                        ✅ Код успешно активирован!<br>
+                        Ваша награда: ${PROMO_REWARD.reward}<br><br>
+                        <a href="${PROMO_REWARD.link}" style="color: #155724; font-weight: 600; text-decoration: underline;">
+                            Получить награду
+                        </a>
+                    `;
                 } else {
-                    // Повторная активация - НЕ выдается награда
-                    activationHistory.unshift({
-                        time: currentTime,
-                        code: promoCode,
-                        message: 'Промокод уже использован ранее',
-                        success: false,
-                        reused: true
-                    });
-
-                    localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
-
-                    showResult('warning', 'Промокод уже использован', 
-                             'Этот промокод был активирован ранее и больше не действителен.');
+                    resultPanel.className = 'result-panel result-error';
+                    resultPanel.style.display = 'block';
+                    resultMessage.textContent = 'Этот код уже был использован ранее.';
                 }
             } else {
-                // Неверный промокод
-                activationHistory.unshift({
-                    time: currentTime,
-                    code: promoCode,
-                    message: 'Неверный промокод',
-                    success: false,
-                    reused: false
-                });
-
-                localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
-
-                showResult('error', 'Неверный код', 'Проверьте правильность ввода промокода.');
+                resultPanel.className = 'result-panel result-error';
+                resultPanel.style.display = 'block';
+                resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
             }
 
-            // Ограничить историю 50 записями
-            activationHistory = activationHistory.slice(0, 50);
-            localStorage.setItem('promoHistory', JSON.stringify(activationHistory));
-
-            updateHistory();
-            document.getElementById('promo-input').value = '';
+            codeInput.value = '';
         });
 
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', function() {
-            updateStats(); // Инициализация статистики
-            updateHistory();
-            
-            // Обновлять статистику онлайн каждые 30 секунд
-            setInterval(updateStats, 30000);
-        });
+        // Ограничить историю 10 записями
+        if (activationHistory.length > 10) {
+            activationHistory = activationHistory.slice(0, 10);
+            localStorage.setItem('activationHistory', JSON.stringify(activationHistory));
+        }
     </script>
 </body>
 </html>
