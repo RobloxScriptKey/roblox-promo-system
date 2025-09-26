@@ -239,6 +239,12 @@
             font-weight: 600;
             border-radius: 8px;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #0077cc 0%, #005fa3 100%);
+            transform: translateY(-2px);
         }
         
         .result-panel {
@@ -385,8 +391,6 @@
     </div>
     
     <div class="main-container">
-        <!-- Убрал статус системы - он не нужен -->
-        
         <!-- Статистика Roblox -->
         <div class="stats-container">
             <div class="stat-item">
@@ -417,12 +421,12 @@
                 
                 <form id="promo-form">
                     <div class="form-group">
-                        <label class="form-label">ВВЕДИТЕ ПРОМОКОД</label>
+                        <label class="form-label">ПРОМОКОД</label>
                         <input type="text" name="promo_code" class="promo-input" 
                                placeholder="ВВЕДИТЕ ПРОМОКОД" required maxlength="20" id="promo-input">
                     </div>
                     
-                    <button type="submit" class="submit-btn">🚀 АКТИВИРОВАТЬ</button>
+                    <button type="submit" class="submit-btn">✅ ПРИМЕНИТЬ ПРОМОКОД</button>
                 </form>
                 
                 <div class="result-panel" id="result-panel">
