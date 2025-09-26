@@ -35,6 +35,17 @@
             padding: 0 20px;
         }
         
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .roblox-icon {
+            width: 32px;
+            height: 32px;
+        }
+        
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -50,6 +61,7 @@
             text-decoration: none;
             color: #666;
             font-size: 14px;
+            transition: color 0.3s;
         }
         
         .nav-links a:hover {
@@ -210,6 +222,7 @@
             text-decoration: none;
             margin-bottom: 8px;
             font-size: 14px;
+            transition: color 0.3s;
         }
         
         .footer-column a:hover {
@@ -248,6 +261,12 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .visit-btn:hover {
+            background: #0088cc;
         }
         
         @media (max-width: 768px) {
@@ -293,12 +312,15 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <div class="logo">ROBLOX</div>
+            <div class="logo-section">
+                <img src="https://images.rbxcdn.com/53c15b8e7c9b5d78d1f3e5f96e5e9d92.svg" alt="Roblox" class="roblox-icon">
+                <div class="logo">ROBLOX</div>
+            </div>
             <nav class="nav-links">
-                <a href="#">Диаграммы</a>
-                <a href="#">Торговая площадка</a>
-                <a href="#">Создавать</a>
-                <a href="#">Робуксы</a>
+                <a href="https://www.roblox.com/discover#/" target="_blank">Диаграммы</a>
+                <a href="https://www.roblox.com/catalog" target="_blank">Торговая площадка</a>
+                <a href="https://create.roblox.com" target="_blank">Создавать</a>
+                <a href="https://www.roblox.com/upgrades/robux" target="_blank">Робуксы</a>
             </nav>
         </div>
     </header>
@@ -317,7 +339,7 @@
                 <div class="checkbox-group">
                     <input type="checkbox" class="checkbox" id="age-check" required>
                     <label for="age-check" class="checkbox-text">
-                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="#">Условиями использования</a>, включая арбитражную оговорку и <a href="#">Условия использования подарочных карт</a>, а также с нашей <a href="#">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
                     </label>
                 </div>
                 
@@ -332,10 +354,10 @@
         <div class="additional-info">
             <h3 class="info-title">Дополнительная информация</h3>
             <div class="info-links">
-                <a href="#" class="info-link">Как использовать подарочные карты (видео)</a>
-                <a href="#" class="info-link">Дополнительная информация о подарочных картах</a>
-                <a href="#" class="info-link">Как использовать коды виртуальных предметов</a>
-                <a href="#" class="info-link">Как использовать промокоды</a>
+                <a href="https://en.help.roblox.com/hc/articles/360000291786" target="_blank" class="info-link">Как использовать подарочные карты (видео)</a>
+                <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank" class="info-link">Дополнительная информация о подарочных картах</a>
+                <a href="https://en.help.roblox.com/hc/articles/203313270" target="_blank" class="info-link">Как использовать коды виртуальных предметов</a>
+                <a href="https://en.help.roblox.com/hc/articles/10549651906324" target="_blank" class="info-link">Как использовать промокоды</a>
             </div>
         </div>
     </div>
@@ -345,22 +367,22 @@
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>О нас</h4>
-                    <a href="#">Работа</a>
-                    <a href="#">Блог</a>
-                    <a href="#">Родители</a>
+                    <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
+                    <a href="https://blog.roblox.com" target="_blank">Блог</a>
+                    <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Подарочные карты</h4>
-                    <a href="#">Помощь</a>
-                    <a href="#">Условия</a>
-                    <a href="#">Доступность</a>
+                    <a href="https://en.help.roblox.com/hc" target="_blank">Помощь</a>
+                    <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Условия</a>
+                    <a href="https://en.help.roblox.com/hc/articles/360000242306" target="_blank">Доступность</a>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Конфиденциальность</h4>
-                    <a href="#">Ваш выбор конфиденциальности</a>
-                    <a href="#">Карта сайта</a>
+                    <a href="https://en.help.roblox.com/hc/articles/212459606" target="_blank">Ваш выбор конфиденциальности</a>
+                    <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Карта сайта</a>
                 </div>
             </div>
             
@@ -369,7 +391,7 @@
             <div class="app-promo">
                 <div class="app-title">Исследуйте Roblox в нашем приложении для Android!</div>
                 <div class="app-subtitle">Миллионы впечатлений от таких людей, как вы</div>
-                <button class="visit-btn">Посещать</button>
+                <a href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank" class="visit-btn">Посещать</a>
             </div>
         </div>
     </footer>
@@ -427,7 +449,7 @@
                     resultMessage.innerHTML = `
                         ✅ Код успешно активирован!<br>
                         Ваша награда: ${PROMO_REWARD.reward}<br><br>
-                        <a href="${PROMO_REWARD.link}" style="color: #155724; font-weight: 600; text-decoration: underline;">
+                        <a href="${PROMO_REWARD.link}" style="color: #155724; font-weight: 600; text-decoration: underline;" target="_blank">
                             Получить награду
                         </a>
                     `;
