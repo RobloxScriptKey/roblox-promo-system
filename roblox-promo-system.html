@@ -4,13 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мой сайт на Netlify</title>
+    <meta name="description" content="Мой первый сайт, размещенный на Netlify">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        h1 { color: #333; }
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { 
+            color: #fff;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать на мой сайт!</h1>
-    <p>Это статический сайт, размещенный на Netlify.</p>
+    <div class="container">
+        <h1>🚀 Добро пожаловать на мой сайт!</h1>
+        <p>Это статический сайт, размещенный на Netlify.</p>
+        <p>Сайт полностью функционирует и доступен по уникальному URL.</p>
+    </div>
 </body>
 </html>
