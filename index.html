@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: Gotham, Helvetica, Arial, sans-serif;
         }
         
         body {
@@ -18,133 +18,77 @@
             color: #1a1a1a;
             line-height: 1.5;
             min-height: 100vh;
+            font-size: 14px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
         .header {
-            background: white;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 12px 0;
-        }
-        
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .roblox-icon {
-            width: 32px;
-            height: 32px;
+            text-align: center;
+            margin-bottom: 30px;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
             color: #00a2ff;
+            margin-bottom: 10px;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #00a2ff;
-        }
-        
-        .main-container {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .page-title {
-            font-size: 28px;
+        h1 {
+            font-size: 24px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: center;
         }
         
-        .page-subtitle {
+        .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
+            margin-bottom: 25px;
+            font-size: 14px;
         }
         
-        .card {
+        .form-container {
             background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #333;
+            border-radius: 4px;
+            padding: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         
         .code-input {
             width: 100%;
             padding: 12px;
-            border: 2px solid #e0e0e0;
+            border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
             text-align: center;
+            margin-bottom: 20px;
             text-transform: uppercase;
         }
         
-        .code-input:focus {
-            border-color: #00a2ff;
-            outline: none;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin: 25px 0;
+        .checkbox-container {
+            margin: 20px 0;
         }
         
         .checkbox {
-            margin-top: 3px;
+            margin-right: 8px;
         }
         
-        .checkbox-text {
-            font-size: 14px;
+        .checkbox-label {
+            font-size: 12px;
             color: #666;
             line-height: 1.4;
         }
         
-        .checkbox-text a {
+        .checkbox-label a {
             color: #00a2ff;
             text-decoration: none;
-        }
-        
-        .checkbox-text a:hover {
-            text-decoration: underline;
         }
         
         .submit-btn {
@@ -152,32 +96,28 @@
             background: #00a2ff;
             color: white;
             border: none;
-            padding: 14px;
+            padding: 12px;
             font-size: 16px;
             font-weight: 600;
             border-radius: 4px;
             cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #0088cc;
+            margin-top: 15px;
         }
         
         .additional-info {
-            margin-top: 40px;
+            margin: 30px 0;
         }
         
         .info-title {
-            font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
+            font-size: 16px;
         }
         
         .info-links {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         
         .info-link {
@@ -186,114 +126,58 @@
             font-size: 14px;
         }
         
-        .info-link:hover {
-            text-decoration: underline;
-        }
-        
         .footer {
-            background: white;
             border-top: 1px solid #e0e0e0;
-            margin-top: 60px;
-            padding: 40px 20px;
+            padding-top: 20px;
+            font-size: 12px;
+            color: #666;
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
+        .footer-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
         }
         
-        .footer-column h4 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .footer-column strong {
+            display: block;
+            margin-bottom: 5px;
             color: #333;
         }
         
         .footer-column a {
+            color: #666;
+            text-decoration: none;
             display: block;
-            color: #666;
-            text-decoration: none;
-            margin-bottom: 8px;
-            font-size: 14px;
-            transition: color 0.3s;
+            margin-bottom: 3px;
         }
         
-        .footer-column a:hover {
-            color: #00a2ff;
-        }
-        
-        .footer-divider {
-            border-top: 1px solid #e0e0e0;
-            margin: 30px 0;
-        }
-        
-        .app-promo {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
+        .footer-bottom {
             text-align: center;
-            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 11px;
+            color: #999;
         }
         
-        .app-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        
-        .app-subtitle {
+        .footer-bottom a {
             color: #666;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        
-        .visit-btn {
-            background: #00a2ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
             text-decoration: none;
-            display: inline-block;
         }
         
-        .visit-btn:hover {
-            background: #0088cc;
+        .divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 20px 0;
         }
         
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                gap: 20px;
-            }
-            
-            .footer-links {
-                grid-template-columns: 1fr;
-            }
-            
-            .card {
-                padding: 20px;
-            }
-        }
-        
-        /* Стили для результатов */
         .result-panel {
-            margin-top: 20px;
-            padding: 15px;
+            margin-top: 15px;
+            padding: 12px;
             border-radius: 4px;
             display: none;
+            font-size: 14px;
         }
         
         .result-success {
@@ -310,36 +194,24 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <div class="logo-section">
-                <img src="https://images.rbxcdn.com/53c15b8e7c9b5d78d1f3e5f96e5e9d92.svg" alt="Roblox" class="roblox-icon">
-                <div class="logo">ROBLOX</div>
-            </div>
-            <nav class="nav-links">
-                <a href="https://www.roblox.com/discover#/" target="_blank">Диаграммы</a>
-                <a href="https://www.roblox.com/catalog" target="_blank">Торговая площадка</a>
-                <a href="https://create.roblox.com" target="_blank">Создавать</a>
-                <a href="https://www.roblox.com/upgrades/robux" target="_blank">Робуксы</a>
-            </nav>
+    <div class="container">
+        <div class="header">
+            <div class="logo">ROBLOX</div>
         </div>
-    </header>
-
-    <div class="main-container">
-        <h1 class="page-title">Активировать коды Roblox</h1>
-        <p class="page-subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
         
-        <div class="card">
+        <h1>Активировать коды Roblox</h1>
+        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
+        
+        <div class="form-container">
             <form id="code-form">
-                <div class="form-group">
-                    <label class="form-label">Код</label>
-                    <input type="text" class="code-input" placeholder="Введите код" required id="code-input">
-                </div>
+                <input type="text" class="code-input" placeholder="Код" required id="code-input">
                 
-                <div class="checkbox-group">
+                <div class="divider"></div>
+                
+                <div class="checkbox-container">
                     <input type="checkbox" class="checkbox" id="age-check" required>
-                    <label for="age-check" class="checkbox-text">
-                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                    <label for="age-check" class="checkbox-label">
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
                     </label>
                 </div>
                 
@@ -352,7 +224,7 @@
         </div>
         
         <div class="additional-info">
-            <h3 class="info-title">Дополнительная информация</h3>
+            <div class="info-title">Дополнительная информация</div>
             <div class="info-links">
                 <a href="https://en.help.roblox.com/hc/articles/360000291786" target="_blank" class="info-link">Как использовать подарочные карты (видео)</a>
                 <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank" class="info-link">Дополнительная информация о подарочных картах</a>
@@ -360,41 +232,37 @@
                 <a href="https://en.help.roblox.com/hc/articles/10549651906324" target="_blank" class="info-link">Как использовать промокоды</a>
             </div>
         </div>
-    </div>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
+        
+        <div class="divider"></div>
+        
+        <div class="footer">
+            <div class="footer-columns">
                 <div class="footer-column">
-                    <h4>О нас</h4>
+                    <strong>О нас</strong>
                     <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
                     <a href="https://blog.roblox.com" target="_blank">Блог</a>
                     <a href="https://corp.roblox.com/parents/" target="_blank">Родители</a>
                 </div>
-                
                 <div class="footer-column">
-                    <h4>Подарочные карты</h4>
-                    <a href="https://en.help.roblox.com/hc" target="_blank">Помощь</a>
-                    <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Условия</a>
+                    <strong>Условия</strong>
                     <a href="https://en.help.roblox.com/hc/articles/360000242306" target="_blank">Доступность</a>
+                    <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Конфиденциальность</a>
                 </div>
-                
                 <div class="footer-column">
-                    <h4>Конфиденциальность</h4>
-                    <a href="https://en.help.roblox.com/hc/articles/212459606" target="_blank">Ваш выбор конфиденциальности</a>
+                    <strong>Подарочные карты</strong>
+                    <a href="https://en.help.roblox.com/hc" target="_blank">Помощь</a>
+                </div>
+                <div class="footer-column">
+                    <strong>Ваш выбор конфиденциальности</strong>
                     <a href="https://en.help.roblox.com/hc/articles/115004647846" target="_blank">Карта сайта</a>
                 </div>
             </div>
             
-            <div class="footer-divider"></div>
-            
-            <div class="app-promo">
-                <div class="app-title">Исследуйте Roblox в нашем приложении для Android!</div>
-                <div class="app-subtitle">Миллионы впечатлений от таких людей, как вы</div>
-                <a href="https://play.google.com/store/apps/details?id=com.roblox.client" target="_blank" class="visit-btn">Посещать</a>
+            <div class="footer-bottom">
+                <a href="#">Pycский®</a> | ©2023 Roblox Corporation. Roblox, avenue Roblox и Powering transportation являются нашими характеристиками и негативными для использования товарищей. США и другие страны.
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
         const SECRET_PROMO_CODE = "TWEETROBLOX";
@@ -405,7 +273,6 @@
         };
 
         let codeUsed = localStorage.getItem('codeUsed') === 'true';
-        let activationHistory = JSON.parse(localStorage.getItem('activationHistory')) || [];
 
         document.getElementById('code-form').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -430,15 +297,6 @@
                 return;
             }
 
-            // Сохраняем в историю
-            activationHistory.unshift({
-                code: code,
-                time: new Date().toLocaleString('ru-RU'),
-                success: code === SECRET_PROMO_CODE
-            });
-
-            localStorage.setItem('activationHistory', JSON.stringify(activationHistory));
-
             if (code === SECRET_PROMO_CODE) {
                 if (!codeUsed) {
                     codeUsed = true;
@@ -447,7 +305,7 @@
                     resultPanel.className = 'result-panel result-success';
                     resultPanel.style.display = 'block';
                     resultMessage.innerHTML = `
-                        ✅ Код успешно активирован!<br>
+                        ✅ Код успешно активирован!<br><br>
                         Ваша награда: ${PROMO_REWARD.reward}<br><br>
                         <a href="${PROMO_REWARD.link}" style="color: #155724; font-weight: 600; text-decoration: underline;" target="_blank">
                             Получить награду
@@ -466,12 +324,6 @@
 
             codeInput.value = '';
         });
-
-        // Ограничить историю 10 записями
-        if (activationHistory.length > 10) {
-            activationHistory = activationHistory.slice(0, 10);
-            localStorage.setItem('activationHistory', JSON.stringify(activationHistory));
-        }
     </script>
 </body>
 </html>
