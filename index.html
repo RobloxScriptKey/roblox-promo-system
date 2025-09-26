@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Активация промокодов Roblox - Официальный сайт</title>
+    <title>Активация промокодов Roblox</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
     <style>
         :root {
@@ -144,17 +144,6 @@
             padding: 0 20px;
             flex: 1 0 auto;
             width: 100%;
-        }
-        
-        .status-alert {
-            background: rgba(0, 162, 255, 0.1);
-            border: 1px solid var(--roblox-blue);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
         .grid-layout {
@@ -396,13 +385,7 @@
     </div>
     
     <div class="main-container">
-        <div class="status-alert">
-            <div>ℹ️</div>
-            <div>
-                <strong>Статус системы:</strong> Все сервисы работают • 
-                Обновлено: <span id="current-time"></span> МСК
-            </div>
-        </div>
+        <!-- Убрал статус системы - он не нужен -->
         
         <!-- Статистика Roblox -->
         <div class="stats-container">
@@ -541,13 +524,6 @@
             }
         }
 
-        // Обновление времени
-        function updateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleString('ru-RU');
-            document.getElementById('current-time').textContent = timeString;
-        }
-
         // Обновить историю
         function updateHistory() {
             const container = document.getElementById('history-container');
@@ -561,7 +537,7 @@
             activationHistory.forEach(item => {
                 historyHTML += `
                     <div class="history-item ${item.success ? (item.reused ? 'warning' : '') : 'error'}">
-                        <div style="color: #888; font-size: 0.8em;">${item.time} МСК</div>
+                        <div style="color: #888; font-size: 0.8em;">${item.time}</div>
                         <div><strong>Код:</strong> ${item.code}</div>
                         <div>${item.message}</div>
                     </div>
@@ -663,12 +639,8 @@
 
         // Инициализация
         document.addEventListener('DOMContentLoaded', function() {
-            updateTime();
             updateStats(); // Инициализация статистики
             updateHistory();
-            
-            // Обновлять время каждую минуту
-            setInterval(updateTime, 60000);
             
             // Обновлять статистику онлайн каждые 30 секунд
             setInterval(updateStats, 30000);
