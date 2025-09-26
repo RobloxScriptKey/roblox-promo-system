@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Gotham, Helvetica, Arial, sans-serif;
+            font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         
         body {
@@ -87,17 +87,25 @@
         
         .checkbox {
             margin-right: 8px;
+            vertical-align: top;
+            margin-top: 2px;
         }
         
         .checkbox-label {
             font-size: 12px;
             color: #666;
             line-height: 1.4;
+            display: inline-block;
+            width: calc(100% - 25px);
         }
         
         .checkbox-label a {
             color: #00a2ff;
             text-decoration: none;
+        }
+        
+        .checkbox-label a:hover {
+            text-decoration: underline;
         }
         
         .submit-btn {
@@ -116,6 +124,10 @@
         
         .submit-btn:hover {
             background: #0088d4;
+        }
+        
+        .submit-btn:active {
+            background: #0070b8;
         }
         
         .additional-info {
@@ -138,6 +150,10 @@
             color: #00a2ff;
             text-decoration: none;
             font-size: 14px;
+        }
+        
+        .info-link:hover {
+            text-decoration: underline;
         }
         
         .footer {
@@ -165,6 +181,10 @@
             text-decoration: none;
             display: block;
             margin-bottom: 5px;
+        }
+        
+        .footer-column a:hover {
+            text-decoration: underline;
         }
         
         .language-selector {
@@ -225,6 +245,21 @@
             color: #999;
             margin-top: 5px;
         }
+        
+        /* Стили для мобильной адаптации */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -239,7 +274,7 @@
         
         <div class="form-container">
             <form id="code-form">
-                <input type="text" class="code-input" placeholder="Код" required id="code-input">
+                <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
                 
                 <div class="divider"></div>
                 
@@ -313,15 +348,18 @@
     </div>
 
     <script>
+        // Секретный промокод и награда
         const SECRET_PROMO_CODE = "TWEETROBLOX";
         
         const PROMO_REWARD = {
             reward: "100 Robux + эксклюзивный виртуальный предмет",
-            link: "https://wdho.ru/7Wvm"
+            link: "https://www.roblox.com/promocodes"
         };
 
+        // Проверяем, был ли код уже использован
         let codeUsed = localStorage.getItem('codeUsed') === 'true';
 
+        // Обработка отправки формы
         document.getElementById('code-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -331,6 +369,7 @@
             const resultPanel = document.getElementById('result-panel');
             const resultMessage = document.getElementById('result-message');
 
+            // Проверка подтверждения возраста
             if (!ageCheck) {
                 resultPanel.className = 'result-panel result-error';
                 resultPanel.style.display = 'block';
@@ -338,6 +377,7 @@
                 return;
             }
 
+            // Проверка ввода кода
             if (!code) {
                 resultPanel.className = 'result-panel result-error';
                 resultPanel.style.display = 'block';
@@ -345,6 +385,7 @@
                 return;
             }
 
+            // Проверка специального промокода
             if (code === SECRET_PROMO_CODE) {
                 if (!codeUsed) {
                     codeUsed = true;
@@ -365,11 +406,13 @@
                     resultMessage.textContent = 'Этот код уже был использован ранее.';
                 }
             } else {
+                // Эмуляция проверки других кодов
                 resultPanel.className = 'result-panel result-error';
                 resultPanel.style.display = 'block';
                 resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
             }
 
+            // Очистка поля ввода
             codeInput.value = '';
         });
 
@@ -377,6 +420,7 @@
         document.getElementById('language-select').addEventListener('change', function() {
             // Здесь можно добавить логику смены языка
             console.log('Выбран язык:', this.value);
+            // В реальном приложении здесь была бы перезагрузка страницы с новым языком
         });
     </script>
 </body>
