@@ -26,6 +26,8 @@
             min-height: 100vh;
             color: #ffffff;
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
         }
         
         .official-header {
@@ -74,6 +76,7 @@
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+            flex: 1;
         }
         
         .status-alert {
@@ -213,6 +216,101 @@
             text-align: center;
             display: none;
         }
+        
+        /* Футер */
+        .official-footer {
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+            padding: 30px 0 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .footer-column {
+            min-width: 150px;
+        }
+        
+        .footer-column h4 {
+            color: var(--roblox-blue);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .footer-column a {
+            display: block;
+            color: #cccccc;
+            text-decoration: none;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--roblox-blue);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #888;
+            font-size: 0.85em;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--roblox-blue);
+        }
+        
+        .age-rating {
+            background: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-column {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -280,6 +378,65 @@
             </div>
         </div>
     </div>
+
+    <!-- Футер -->
+    <footer class="official-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>О компании</h4>
+                    <a href="#">О нас</a>
+                    <a href="#">Новости</a>
+                    <a href="#">Карьера</a>
+                    <a href="#">Блог</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Помощь</h4>
+                    <a href="#">Центр поддержки</a>
+                    <a href="#">Частые вопросы</a>
+                    <a href="#">Сообщить о проблеме</a>
+                    <a href="#">Сообщество</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Правовая информация</h4>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Правила сообщества</a>
+                    <a href="#">Политика cookies</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Ресурсы</h4>
+                    <a href="#">Для разработчиков</a>
+                    <a href="#">Партнерская программа</a>
+                    <a href="#">Безопасность</a>
+                    <a href="#">Инвесторам</a>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">🐦</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">🎬</a>
+                <a href="#" class="social-icon">💬</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Roblox Corporation. Все права защищены.</p>
+                <p>Roblox, логотип Roblox и другие знаки являются товарными знаками Roblox Corporation.</p>
+                <p style="margin-top: 10px;">
+                    <span class="age-rating">13+</span>
+                    Контент подходит для пользователей от 13 лет. Родителям рекомендуется контролировать активность детей.
+                </p>
+                <p style="margin-top: 15px; font-size: 0.8em; color: #666;">
+                    Версия 2.1.4 • Служба активации промокодов • Последнее обновление: 15.11.2024
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Секретный промокод
