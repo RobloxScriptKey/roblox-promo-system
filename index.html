@@ -19,52 +19,37 @@
             line-height: 1.5;
             min-height: 100vh;
             font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .navbar {
+            width: 100%;
             background: #fff;
             border-bottom: 1px solid #e6e6e6;
             padding: 12px 0;
             margin-bottom: 24px;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .nav-logo {
-            height: 36px;
-            width: auto;
+            text-align: center;
         }
         
         .nav-logo img {
             height: 36px;
-        }
-        
-        .nav-links {
-            display: none;
-        }
-        
-        .nav-actions {
-            display: none;
+            width: auto;
         }
         
         .container {
             max-width: 400px;
-            margin: 0 auto;
-            padding: 24px;
+            width: 100%;
+            padding: 0 16px;
+            box-sizing: border-box;
         }
         
         h1 {
             font-size: 24px;
             font-weight: 600;
-            margin-bottom: 16px;
             text-align: center;
+            margin-bottom: 16px;
             color: #000;
         }
         
@@ -78,11 +63,11 @@
         
         .form-container {
             background: #fff;
+            border: 1px solid #e6e6e6;
             border-radius: 6px;
             padding: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-bottom: 32px;
-            border: 1px solid #e6e6e6;
         }
         
         .code-input {
@@ -191,6 +176,7 @@
             font-size: 12px;
             color: #666;
             text-align: center;
+            margin-top: auto;
         }
         
         .language-selector {
@@ -219,46 +205,18 @@
             text-decoration: none;
         }
         
-        .result-panel {
-            margin-top: 16px;
-            padding: 16px;
-            border-radius: 6px;
-            display: none;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        
-        .result-success {
-            background: #f0f9f0;
-            border: 1px solid #d0f0d0;
-            color: #2d5a2d;
-        }
-        
-        .result-error {
-            background: #fdf0f0;
-            border: 1px solid #f0d0d0;
-            color: #5a2d2d;
-        }
-        
         @media (max-width: 480px) {
             .container {
                 padding: 16px;
-                max-width: 100%;
-            }
-            
-            .form-container {
-                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="https://www.roblox.com" class="nav-logo">
-                <img src="/logo.png" alt="Roblox Logo" height="36">
-            </a>
-        </div>
+        <a href="https://www.roblox.com" class="nav-logo">
+            <img src="https://www.roblox.com/images/RobloxIcon.png" alt="Roblox Logo" height="36">
+        </a>
     </nav>
 
     <div class="container">
@@ -267,4 +225,51 @@
         
         <div class="form-container">
             <form id="code-form">
-                <input type="text" class="code-input" placeholder="Код" required id="
+                <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" class="checkbox" id="age-check" required>
+                    <label for="age-check" class="checkbox-label">
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823">Политикой конфиденциальности</a>.
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Выкупать</button>
+            </form>
+        </div>
+        
+        <div class="additional-info">
+            <div class="info-title">Дополнительная информация</div>
+            <div class="info-links">
+                <a href="https://en.help.roblox.com/hc/articles/360000291786" target="_blank" class="info-link">Как использовать подарочные карты (видео)</a>
+                <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank" class="info-link">Дополнительная информация о подарочных картах</a>
+                <a href="https://en.help.roblox.com/hc/articles/203313270" target="_blank" class="info-link">Как использовать коды виртуальных предметов</a>
+                <a href="https://en.help.roblox.com/hc/articles/10549651906324" target="_blank" class="info-link">Как использовать промокоды</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="language-selector">
+                <select class="language-dropdown" id="language-select">
+                    <option value="ru" selected>Русский*</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="footer-bottom">
+                ©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('code-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Функция активации кода пока не реализована. Используйте тестовый код "TWEETROBLOX" для проверки.');
+        });
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            console.log('Выбран язык:', this.value);
+        });
+    </script>
+</body>
+</html>
