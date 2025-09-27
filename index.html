@@ -42,6 +42,7 @@
             font-size: 24px;
             font-weight: bold;
             color: #00a2ff;
+            text-decoration: none;
         }
         
         .nav-links {
@@ -88,6 +89,12 @@
             cursor: pointer;
             font-size: 13px;
             font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .login-btn:hover {
+            background: #0088d4;
         }
         
         .container {
@@ -387,16 +394,17 @@
     <!-- Навигационная панель -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Roblox</div>
+            <a href="https://www.roblox.com" class="nav-logo">Roblox</a>
             <div class="nav-links">
-                <a href="#" class="nav-link">Открыть</a>
-                <a href="#" class="nav-link">Торговая площадка</a>
-                <a href="#" class="nav-link">Создавать</a>
-                <a href="#" class="nav-link">Робуксы</a>
+                <a href="https://www.roblox.com/discover" class="nav-link">Открыть</a>
+                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
+                <a href="https://www.roblox.com/develop" class="nav-link">Создавать</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
+                <a href="https://www.roblox.com/groups/group.aspx?gid=4199743" class="nav-link">Диаграммы</a>
             </div>
             <div class="nav-actions">
                 <input type="text" class="search-box" placeholder="Поиск">
-                <button class="login-btn">Войти</button>
+                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
             </div>
         </div>
     </nav>
@@ -415,7 +423,7 @@
                 <div class="checkbox-container">
                     <input type="checkbox" class="checkbox" id="age-check" required>
                     <label for="age-check" class="checkbox-label">
-                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="#">Условиями использования</a>, включая арбитражную оговорку и <a href="#">Условия использования подарочных карт</a>, а также с нашей <a href="#">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
                     </label>
                 </div>
                 
@@ -548,6 +556,16 @@
 
         document.getElementById('language-select').addEventListener('change', function() {
             console.log('Выбран язык:', this.value);
+        });
+
+        // Добавляем функциональность для поиска
+        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    window.open(`https://www.roblox.com/search/users?keyword=${encodeURIComponent(query)}`, '_blank');
+                }
+            }
         });
     </script>
 </body>
