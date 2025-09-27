@@ -5,28 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Активировать коды Roblox</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Альтернатива Gotham -->
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Source Sans Pro", "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         
         body {
-            background-color: #f7f7f7;
+            background-image: url('https://t7.rbxcdn.com/images/Store/2022_Q4/2022_Q4_BG.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             color: #1a1a1a;
             line-height: 1.5;
             min-height: 100vh;
             font-size: 14px;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); /* Лёгкий оверлей для читаемости */
+            z-index: -1;
         }
         
         /* Навигация */
         .navbar {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #e6e6e6;
             padding: 12px 0;
             margin-bottom: 24px;
+            position: relative;
+            z-index: 10;
         }
         
         .nav-container {
@@ -41,6 +61,10 @@
         .nav-logo {
             height: 36px;
             width: auto;
+        }
+        
+        .nav-logo img {
+            height: 36px;
         }
         
         .nav-links {
@@ -99,45 +123,65 @@
             max-width: 440px;
             margin: 0 auto;
             padding: 24px;
+            position: relative;
+            z-index: 5;
         }
         
         h1 {
             font-size: 28px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 16px;
             text-align: center;
-            color: #1a1a1a;
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Для читаемости на фоне */
         }
         
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #fff;
             margin-bottom: 28px;
             font-size: 15px;
             line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         
         .form-container {
-            background: white;
-            border-radius: 6px;
-            padding: 28px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             margin-bottom: 32px;
-            border: 1px solid #e6e6e6;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .code-input-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
         }
         
         .code-input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 14px 16px 14px 50px; /* Отступ слева для иконки */
             border: 2px solid #e0e0e0;
             border-radius: 6px;
             font-size: 16px;
             text-align: center;
-            margin-bottom: 24px;
             text-transform: uppercase;
             font-weight: 500;
             color: #333;
             transition: border-color 0.2s;
+            background: white;
         }
         
         .code-input:focus {
@@ -182,7 +226,7 @@
         
         .submit-btn {
             width: 100%;
-            background: #00a2ff;
+            background: linear-gradient(135deg, #00a2ff, #0088d4);
             color: white;
             border: none;
             padding: 14px;
@@ -191,15 +235,48 @@
             border-radius: 6px;
             cursor: pointer;
             margin-top: 20px;
-            transition: background-color 0.2s;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
         }
         
         .submit-btn:hover {
-            background: #0088d4;
+            background: linear-gradient(135deg, #0088d4, #0066aa);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,162,255,0.3);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
         .additional-info {
             margin: 32px 0;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 6px;
         }
         
         .info-title {
@@ -229,10 +306,13 @@
         }
         
         .footer {
+            background: rgba(0, 0, 0, 0.7);
             border-top: 1px solid #e6e6e6;
             padding-top: 24px;
             font-size: 12px;
-            color: #666;
+            color: #ccc;
+            position: relative;
+            z-index: 5;
         }
         
         .footer-links {
@@ -240,6 +320,9 @@
             flex-wrap: wrap;
             gap: 24px;
             margin-bottom: 20px;
+            max-width: 1200px;
+            margin: 0 auto 20px;
+            padding: 0 20px;
         }
         
         .footer-column {
@@ -250,13 +333,13 @@
         .footer-column strong {
             display: block;
             margin-bottom: 12px;
-            color: #333;
+            color: #fff;
             font-size: 13px;
             font-weight: 600;
         }
         
         .footer-column a {
-            color: #666;
+            color: #ccc;
             text-decoration: none;
             display: block;
             margin-bottom: 6px;
@@ -272,6 +355,9 @@
         .language-selector {
             margin: 24px 0;
             position: relative;
+            max-width: 1200px;
+            margin: 24px auto 0;
+            padding: 0 20px;
         }
         
         .language-dropdown {
@@ -286,15 +372,17 @@
         
         .footer-bottom {
             text-align: center;
-            padding-top: 20px;
+            padding: 20px;
             border-top: 1px solid #e6e6e6;
             font-size: 11px;
             color: #999;
             line-height: 1.4;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .footer-bottom a {
-            color: #666;
+            color: #ccc;
             text-decoration: none;
         }
         
@@ -346,6 +434,10 @@
             
             .search-box {
                 width: 150px;
+            }
+            
+            body {
+                background-attachment: scroll;
             }
         }
         
@@ -415,7 +507,10 @@
         
         <div class="form-container">
             <form id="code-form">
-                <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
+                <div class="input-group">
+                    <img src="https://www.roblox.com/images/RedeemCardIcon.png" alt="Gift Card Icon" class="code-input-icon">
+                    <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
+                </div>
                 
                 <div class="divider"></div>
                 
@@ -426,7 +521,10 @@
                     </label>
                 </div>
                 
-                <button type="submit" class="submit-btn">Выкупать</button>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                    <span class="spinner"></span>
+                    Выкупать
+                </button>
             </form>
             
             <div class="result-panel" id="result-panel">
@@ -510,6 +608,8 @@
             const ageCheck = document.getElementById('age-check').checked;
             const resultPanel = document.getElementById('result-panel');
             const resultMessage = document.getElementById('result-message');
+            const submitBtn = document.getElementById('submit-btn');
+            const spinner = submitBtn.querySelector('.spinner');
 
             if (!ageCheck) {
                 resultPanel.className = 'result-panel result-error';
@@ -525,32 +625,40 @@
                 return;
             }
 
-            if (code === SECRET_PROMO_CODE) {
-                if (!codeUsed) {
-                    codeUsed = true;
-                    localStorage.setItem('codeUsed', 'true');
-                    
-                    resultPanel.className = 'result-panel result-success';
-                    resultPanel.style.display = 'block';
-                    resultMessage.innerHTML = `
-                        Код успешно активирован!<br><br>
-                        Ваша награда: ${PROMO_REWARD.reward}<br><br>
-                        <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
-                            Получить награду
-                        </a>
-                    `;
+            // Показать спиннер (как на оригинале)
+            submitBtn.disabled = true;
+            spinner.style.display = 'block';
+            resultPanel.style.display = 'none';
+
+            // Симуляция задержки для реализма
+            setTimeout(() => {
+                if (code === SECRET_PROMO_CODE) {
+                    if (!codeUsed) {
+                        codeUsed = true;
+                        localStorage.setItem('codeUsed', 'true');
+                        
+                        resultPanel.className = 'result-panel result-success';
+                        resultMessage.innerHTML = `
+                            Код успешно активирован!<br><br>
+                            Ваша награда: ${PROMO_REWARD.reward}<br><br>
+                            <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
+                                Получить награду
+                            </a>
+                        `;
+                    } else {
+                        resultPanel.className = 'result-panel result-error';
+                        resultMessage.textContent = 'Этот код уже был использован ранее.';
+                    }
                 } else {
                     resultPanel.className = 'result-panel result-error';
-                    resultPanel.style.display = 'block';
-                    resultMessage.textContent = 'Этот код уже был использован ранее.';
+                    resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
                 }
-            } else {
-                resultPanel.className = 'result-panel result-error';
+                
                 resultPanel.style.display = 'block';
-                resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
-            }
-
-            codeInput.value = '';
+                spinner.style.display = 'none';
+                submitBtn.disabled = false;
+                codeInput.value = '';
+            }, 1500); // 1.5 сек задержка
         });
 
         document.getElementById('language-select').addEventListener('change', function() {
