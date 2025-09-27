@@ -10,18 +10,19 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         body {
-            background-color: #f5f5f5; /* Лёгкий серый фон, как на оригинале */
-            color: #000;
-            line-height: 1.5;
+            background-color: #f5f5f5;
+            color: #191919;
+            line-height: 1.6;
             min-height: 100vh;
             font-size: 14px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 10px;
         }
         
         .navbar {
@@ -31,19 +32,18 @@
             padding: 12px 0;
             margin-bottom: 24px;
             text-align: center;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Лёгкая тень, как на оригинале */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         
         .nav-logo img {
-            height: 40px; /* Немного увеличил для точности */
+            height: 40px;
             width: auto;
         }
         
         .container {
             max-width: 400px;
             width: 100%;
-            padding: 0 16px;
-            box-sizing: border-box;
+            padding: 0;
         }
         
         h1 {
@@ -51,12 +51,12 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 16px;
-            color: #191919; /* Тёмнее, как на оригинале */
+            color: #191919;
         }
         
         .subtitle {
             text-align: center;
-            color: #757575; /* Более серый оттенок */
+            color: #757575;
             margin-bottom: 28px;
             font-size: 15px;
             line-height: 1.4;
@@ -65,7 +65,7 @@
         .form-container {
             background: #fff;
             border: 1px solid #e0e0e0;
-            border-radius: 8px; /* Чуть больше радиус, как на оригинале */
+            border-radius: 8px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 32px;
@@ -73,12 +73,12 @@
         
         .code-input {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
+            padding: 12px;
+            border: 2px solid #dcdcdc;
+            border-radius: 4px;
             font-size: 16px;
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 500;
             color: #333;
@@ -96,14 +96,14 @@
         }
         
         .checkbox-container {
-            margin: 24px 0;
+            margin: 20px 0;
             padding: 0;
         }
         
         .checkbox {
-            margin-right: 12px;
+            margin-right: 10px;
             vertical-align: top;
-            margin-top: 3px;
+            margin-top: 2px;
             transform: scale(1.1);
         }
         
@@ -128,10 +128,10 @@
             background: #00a2ff;
             color: white;
             border: none;
-            padding: 14px;
+            padding: 12px;
             font-size: 16px;
             font-weight: 600;
-            border-radius: 6px;
+            border-radius: 4px;
             cursor: pointer;
             margin-top: 20px;
             transition: background-color 0.2s;
@@ -178,10 +178,11 @@
             color: #666;
             text-align: center;
             margin-top: auto;
+            padding-bottom: 20px;
         }
         
         .language-selector {
-            margin: 24px 0;
+            margin: 20px 0;
         }
         
         .language-dropdown {
@@ -208,7 +209,7 @@
         
         @media (max-width: 480px) {
             .container {
-                padding: 16px;
+                padding: 0;
             }
         }
     </style>
@@ -237,6 +238,7 @@
                 
                 <button type="submit" class="submit-btn">Выкупать</button>
             </form>
+            <div id="result-panel" class="result-panel" style="display: none;"></div>
         </div>
         
         <div class="additional-info">
@@ -265,7 +267,32 @@
     <script>
         document.getElementById('code-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Функция активации кода пока не реализована. Используйте тестовый код "TWEETROBLOX" для проверки.');
+            const codeInput = document.getElementById('code-input');
+            const code = codeInput.value.trim().toUpperCase();
+            const ageCheck = document.getElementById('age-check').checked;
+            const resultPanel = document.getElementById('result-panel');
+
+            if (!ageCheck) {
+                resultPanel.style.display = 'block';
+                resultPanel.innerHTML = '<div style="color: #5a2d2d; background: #fdf0f0; padding: 10px; border-radius: 4px; border: 1px solid #f0d0d0;">Пожалуйста, подтвердите ваш возраст и согласие с условиями.</div>';
+                return;
+            }
+
+            if (!code) {
+                resultPanel.style.display = 'block';
+                resultPanel.innerHTML = '<div style="color: #5a2d2d; background: #fdf0f0; padding: 10px; border-radius: 4px; border: 1px solid #f0d0d0;">Пожалуйста, введите код.</div>';
+                return;
+            }
+
+            if (code === 'TWEETROBLOX') {
+                resultPanel.style.display = 'block';
+                resultPanel.innerHTML = '<div style="color: #2d5a2d; background: #f0f9f0; padding: 10px; border-radius: 4px; border: 1px solid #d0f0d0;">Код успешно активирован!</div>';
+            } else {
+                resultPanel.style.display = 'block';
+                resultPanel.innerHTML = '<div style="color: #5a2d2d; background: #fdf0f0; padding: 10px; border-radius: 4px; border: 1px solid #f0d0d0;">Неверный код. Пожалуйста, проверьте правильность ввода.</div>';
+            }
+
+            codeInput.value = '';
         });
 
         document.getElementById('language-select').addEventListener('change', function() {
