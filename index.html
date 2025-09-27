@@ -5,48 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Активировать коды Roblox</title>
     <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet"> <!-- Альтернатива Gotham -->
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Source Sans Pro", "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: Arial, sans-serif; /* Простой шрифт для соответствия мобильной версии */
         }
         
         body {
-            background-image: url('https://t7.rbxcdn.com/images/Store/2022_Q4/2022_Q4_BG.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            color: #1a1a1a;
+            background-color: #fff;
+            color: #000;
             line-height: 1.5;
             min-height: 100vh;
             font-size: 14px;
-            position: relative;
         }
         
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1); /* Лёгкий оверлей для читаемости */
-            z-index: -1;
-        }
-        
-        /* Навигация */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: #fff;
             border-bottom: 1px solid #e6e6e6;
             padding: 12px 0;
             margin-bottom: 24px;
-            position: relative;
-            z-index: 10;
         }
         
         .nav-container {
@@ -68,120 +47,56 @@
         }
         
         .nav-links {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.2s;
-        }
-        
-        .nav-link:hover {
-            color: #00a2ff;
-            background: #f0f8ff;
+            display: none; /* Скрываем на мобильных для простоты */
         }
         
         .nav-actions {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        
-        .search-box {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-            font-size: 13px;
-        }
-        
-        .login-btn {
-            background: #00a2ff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .login-btn:hover {
-            background: #0088d4;
+            display: none; /* Скрываем на мобильных для простоты */
         }
         
         .container {
-            max-width: 440px;
+            max-width: 400px;
             margin: 0 auto;
             padding: 24px;
-            position: relative;
-            z-index: 5;
         }
         
         h1 {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 16px;
             text-align: center;
-            color: #fff;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Для читаемости на фоне */
+            color: #000;
         }
         
         .subtitle {
             text-align: center;
-            color: #fff;
+            color: #666;
             margin-bottom: 28px;
             font-size: 15px;
             line-height: 1.4;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
         
         .form-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 32px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            background: #fff;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             margin-bottom: 32px;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .input-group {
-            position: relative;
-            margin-bottom: 24px;
-        }
-        
-        .code-input-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 24px;
-            height: 24px;
-            opacity: 0.7;
+            border: 1px solid #e6e6e6;
         }
         
         .code-input {
             width: 100%;
-            padding: 14px 16px 14px 50px; /* Отступ слева для иконки */
+            padding: 14px;
             border: 2px solid #e0e0e0;
             border-radius: 6px;
             font-size: 16px;
             text-align: center;
+            margin-bottom: 24px;
             text-transform: uppercase;
             font-weight: 500;
             color: #333;
             transition: border-color 0.2s;
-            background: white;
         }
         
         .code-input:focus {
@@ -210,8 +125,6 @@
             font-size: 13px;
             color: #666;
             line-height: 1.5;
-            display: inline-block;
-            width: calc(100% - 30px);
         }
         
         .checkbox-label a {
@@ -226,7 +139,7 @@
         
         .submit-btn {
             width: 100%;
-            background: linear-gradient(135deg, #00a2ff, #0088d4);
+            background: #00a2ff;
             color: white;
             border: none;
             padding: 14px;
@@ -235,48 +148,15 @@
             border-radius: 6px;
             cursor: pointer;
             margin-top: 20px;
-            transition: all 0.2s;
-            position: relative;
-            overflow: hidden;
+            transition: background-color 0.2s;
         }
         
         .submit-btn:hover {
-            background: linear-gradient(135deg, #0088d4, #0066aa);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,162,255,0.3);
-        }
-        
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .spinner {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ffffff;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+            background: #0088d4;
         }
         
         .additional-info {
             margin: 32px 0;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 6px;
         }
         
         .info-title {
@@ -306,58 +186,15 @@
         }
         
         .footer {
-            background: rgba(0, 0, 0, 0.7);
             border-top: 1px solid #e6e6e6;
             padding-top: 24px;
             font-size: 12px;
-            color: #ccc;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            margin-bottom: 20px;
-            max-width: 1200px;
-            margin: 0 auto 20px;
-            padding: 0 20px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 140px;
-        }
-        
-        .footer-column strong {
-            display: block;
-            margin-bottom: 12px;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 600;
-        }
-        
-        .footer-column a {
-            color: #ccc;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 6px;
-            padding: 2px 0;
-            transition: color 0.2s;
-            font-size: 12px;
-        }
-        
-        .footer-column a:hover {
-            color: #00a2ff;
+            color: #666;
+            text-align: center;
         }
         
         .language-selector {
             margin: 24px 0;
-            position: relative;
-            max-width: 1200px;
-            margin: 24px auto 0;
-            padding: 0 20px;
         }
         
         .language-dropdown {
@@ -371,25 +208,15 @@
         }
         
         .footer-bottom {
-            text-align: center;
-            padding: 20px;
-            border-top: 1px solid #e6e6e6;
+            padding-top: 20px;
             font-size: 11px;
             color: #999;
             line-height: 1.4;
-            max-width: 1200px;
-            margin: 0 auto;
         }
         
         .footer-bottom a {
-            color: #ccc;
+            color: #666;
             text-decoration: none;
-        }
-        
-        .divider {
-            height: 1px;
-            background: #e6e6e6;
-            margin: 24px 0;
         }
         
         .result-panel {
@@ -413,34 +240,6 @@
             color: #5a2d2d;
         }
         
-        .language-note {
-            font-size: 11px;
-            color: #999;
-            margin-top: 6px;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            
-            .search-box {
-                width: 150px;
-            }
-            
-            body {
-                background-attachment: scroll;
-            }
-        }
-        
         @media (max-width: 480px) {
             .container {
                 padding: 16px;
@@ -450,81 +249,34 @@
             .form-container {
                 padding: 20px;
             }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .footer-column {
-                min-width: 100%;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .nav-actions {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .search-box {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Навигационная панель -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://www.roblox.com" class="nav-logo">
                 <img src="https://www.roblox.com/images/logo-small.png" alt="Roblox" height="36">
             </a>
-            <div class="nav-links">
-                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
-                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
-                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
-                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
-            </div>
-            <div class="nav-actions">
-                <input type="text" class="search-box" placeholder="Поиск">
-                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
-            </div>
         </div>
     </nav>
 
-    <!-- Основной контент -->
     <div class="container">
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
         
         <div class="form-container">
             <form id="code-form">
-                <div class="input-group">
-                    <img src="https://www.roblox.com/images/RedeemCardIcon.png" alt="Gift Card Icon" class="code-input-icon">
-                    <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
-                </div>
-                
-                <div class="divider"></div>
+                <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
                 
                 <div class="checkbox-container">
                     <input type="checkbox" class="checkbox" id="age-check" required>
                     <label for="age-check" class="checkbox-label">
-                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823">Политикой конфиденциальности</a>.
                     </label>
                 </div>
                 
-                <button type="submit" class="submit-btn" id="submit-btn">
-                    <span class="spinner"></span>
-                    Выкупать
-                </button>
+                <button type="submit" class="submit-btn">Выкупать</button>
             </form>
             
             <div class="result-panel" id="result-panel">
@@ -542,48 +294,13 @@
             </div>
         </div>
         
-        <div class="divider"></div>
-        
         <div class="footer">
-            <div class="footer-links">
-                <div class="footer-column">
-                    <strong>О нас</strong>
-                    <a href="https://corp.roblox.com/careers/">Работа</a>
-                    <a href="https://blog.roblox.com">Блог</a>
-                    <a href="https://corp.roblox.com/parents/">Родителям</a>
-                    <a href="https://www.roblox.com/giftcards">Подарочные карты</a>
-                    <a href="https://en.help.roblox.com">Помощь</a>
-                </div>
-                <div class="footer-column">
-                    <strong>Условия</strong>
-                    <a href="https://en.help.roblox.com/hc/articles/360000242306">Доступность</a>
-                    <a href="https://en.help.roblox.com/hc/articles/115004630823">Конфиденциальность</a>
-                    <a href="https://www.roblox.com/info/privacy#your-privacy-choices">Ваш выбор конфиденциальности</a>
-                    <a href="https://www.roblox.com/sitemap">Карта сайта</a>
-                </div>
-            </div>
-            
             <div class="language-selector">
                 <select class="language-dropdown" id="language-select">
                     <option value="ru" selected>Русский*</option>
-                    <option value="id">Bahasa Indonesia</option>
-                    <option value="de">Deutsch</option>
                     <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="it">Italiano</option>
-                    <option value="pt">Português</option>
-                    <option value="ko">한국어</option>
-                    <option value="ja">日本語</option>
-                    <option value="zh">中文</option>
-                    <option value="tr">Türkçe</option>
-                    <option value="pl">Polski</option>
-                    <option value="nl">Nederlands</option>
-                    <option value="sv">Svenska</option>
                 </select>
-                <div class="language-note">*Выбранный язык</div>
             </div>
-            
             <div class="footer-bottom">
                 ©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.
             </div>
@@ -608,8 +325,6 @@
             const ageCheck = document.getElementById('age-check').checked;
             const resultPanel = document.getElementById('result-panel');
             const resultMessage = document.getElementById('result-message');
-            const submitBtn = document.getElementById('submit-btn');
-            const spinner = submitBtn.querySelector('.spinner');
 
             if (!ageCheck) {
                 resultPanel.className = 'result-panel result-error';
@@ -625,54 +340,36 @@
                 return;
             }
 
-            // Показать спиннер (как на оригинале)
-            submitBtn.disabled = true;
-            spinner.style.display = 'block';
-            resultPanel.style.display = 'none';
-
-            // Симуляция задержки для реализма
-            setTimeout(() => {
-                if (code === SECRET_PROMO_CODE) {
-                    if (!codeUsed) {
-                        codeUsed = true;
-                        localStorage.setItem('codeUsed', 'true');
-                        
-                        resultPanel.className = 'result-panel result-success';
-                        resultMessage.innerHTML = `
-                            Код успешно активирован!<br><br>
-                            Ваша награда: ${PROMO_REWARD.reward}<br><br>
-                            <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
-                                Получить награду
-                            </a>
-                        `;
-                    } else {
-                        resultPanel.className = 'result-panel result-error';
-                        resultMessage.textContent = 'Этот код уже был использован ранее.';
-                    }
+            if (code === SECRET_PROMO_CODE) {
+                if (!codeUsed) {
+                    codeUsed = true;
+                    localStorage.setItem('codeUsed', 'true');
+                    
+                    resultPanel.className = 'result-panel result-success';
+                    resultPanel.style.display = 'block';
+                    resultMessage.innerHTML = `
+                        Код успешно активирован!<br><br>
+                        Ваша награда: ${PROMO_REWARD.reward}<br><br>
+                        <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
+                            Получить награду
+                        </a>
+                    `;
                 } else {
                     resultPanel.className = 'result-panel result-error';
-                    resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
+                    resultPanel.style.display = 'block';
+                    resultMessage.textContent = 'Этот код уже был использован ранее.';
                 }
-                
+            } else {
+                resultPanel.className = 'result-panel result-error';
                 resultPanel.style.display = 'block';
-                spinner.style.display = 'none';
-                submitBtn.disabled = false;
-                codeInput.value = '';
-            }, 1500); // 1.5 сек задержка
+                resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
+            }
+
+            codeInput.value = '';
         });
 
         document.getElementById('language-select').addEventListener('change', function() {
             console.log('Выбран язык:', this.value);
-        });
-
-        // Добавляем функциональность для поиска
-        document.querySelector('.search-box').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const query = this.value.trim();
-                if (query) {
-                    window.open(`https://www.roblox.com/search/users?keyword=${encodeURIComponent(query)}`, '_blank');
-                }
-            }
         });
     </script>
 </body>
