@@ -256,7 +256,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://www.roblox.com" class="nav-logo">
-                <img src="https://www.roblox.com/design-system/static/images/logo-icon.png" alt="Roblox Logo" height="36">
+                <img src="/logo.png" alt="Roblox Logo" height="36">
             </a>
         </div>
     </nav>
@@ -267,110 +267,4 @@
         
         <div class="form-container">
             <form id="code-form">
-                <input type="text" class="code-input" placeholder="Код" required id="code-input" autocomplete="off">
-                
-                <div class="checkbox-container">
-                    <input type="checkbox" class="checkbox" id="age-check" required>
-                    <label for="age-check" class="checkbox-label">
-                        Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/articles/115004647846">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/articles/115005566223">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/articles/115004630823">Политикой конфиденциальности</a>.
-                    </label>
-                </div>
-                
-                <button type="submit" class="submit-btn">Выкупать</button>
-            </form>
-            
-            <div class="result-panel" id="result-panel">
-                <div id="result-message"></div>
-            </div>
-        </div>
-        
-        <div class="additional-info">
-            <div class="info-title">Дополнительная информация</div>
-            <div class="info-links">
-                <a href="https://en.help.roblox.com/hc/articles/360000291786" target="_blank" class="info-link">Как использовать подарочные карты (видео)</a>
-                <a href="https://en.help.roblox.com/hc/articles/115005566223" target="_blank" class="info-link">Дополнительная информация о подарочных картах</a>
-                <a href="https://en.help.roblox.com/hc/articles/203313270" target="_blank" class="info-link">Как использовать коды виртуальных предметов</a>
-                <a href="https://en.help.roblox.com/hc/articles/10549651906324" target="_blank" class="info-link">Как использовать промокоды</a>
-            </div>
-        </div>
-        
-        <div class="footer">
-            <div class="language-selector">
-                <select class="language-dropdown" id="language-select">
-                    <option value="ru" selected>Русский*</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-            <div class="footer-bottom">
-                ©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются нашими зарегистрированными и незарегистрированными товарными знаками в США и других странах.
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const SECRET_PROMO_CODE = "TWEETROBLOX";
-        
-        const PROMO_REWARD = {
-            reward: "100 Robux + эксклюзивный виртуальный предмет",
-            link: "https://wdho.ru/7Wvm"
-        };
-
-        let codeUsed = localStorage.getItem('codeUsed') === 'true';
-
-        document.getElementById('code-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const codeInput = document.getElementById('code-input');
-            const code = codeInput.value.trim().toUpperCase();
-            const ageCheck = document.getElementById('age-check').checked;
-            const resultPanel = document.getElementById('result-panel');
-            const resultMessage = document.getElementById('result-message');
-
-            if (!ageCheck) {
-                resultPanel.className = 'result-panel result-error';
-                resultPanel.style.display = 'block';
-                resultMessage.textContent = 'Пожалуйста, подтвердите ваш возраст и согласие с условиями.';
-                return;
-            }
-
-            if (!code) {
-                resultPanel.className = 'result-panel result-error';
-                resultPanel.style.display = 'block';
-                resultMessage.textContent = 'Пожалуйста, введите код.';
-                return;
-            }
-
-            if (code === SECRET_PROMO_CODE) {
-                if (!codeUsed) {
-                    codeUsed = true;
-                    localStorage.setItem('codeUsed', 'true');
-                    
-                    resultPanel.className = 'result-panel result-success';
-                    resultPanel.style.display = 'block';
-                    resultMessage.innerHTML = `
-                        Код успешно активирован!<br><br>
-                        Ваша награда: ${PROMO_REWARD.reward}<br><br>
-                        <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
-                            Получить награду
-                        </a>
-                    `;
-                } else {
-                    resultPanel.className = 'result-panel result-error';
-                    resultPanel.style.display = 'block';
-                    resultMessage.textContent = 'Этот код уже был использован ранее.';
-                }
-            } else {
-                resultPanel.className = 'result-panel result-error';
-                resultPanel.style.display = 'block';
-                resultMessage.textContent = 'Неверный код. Пожалуйста, проверьте правильность ввода.';
-            }
-
-            codeInput.value = '';
-        });
-
-        document.getElementById('language-select').addEventListener('change', function() {
-            console.log('Выбран язык:', this.value);
-        });
-    </script>
-</body>
-</html>
+                <input type="text" class="code-input" placeholder="Код" required id="
