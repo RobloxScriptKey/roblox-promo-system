@@ -21,6 +21,75 @@
             font-size: 14px;
         }
         
+        /* Навигация */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 12px 0;
+            margin-bottom: 24px;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00a2ff;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #00a2ff;
+            background: #f0f8ff;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        .login-btn {
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
         .container {
             max-width: 440px;
             margin: 0 auto;
@@ -277,6 +346,23 @@
         }
 
         /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .search-box {
+                width: 150px;
+            }
+        }
+        
         @media (max-width: 480px) {
             .container {
                 padding: 16px;
@@ -303,10 +389,44 @@
             h1 {
                 font-size: 24px;
             }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">Roblox</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">Диаграммы</a>
+                <a href="#" class="nav-link">Торговая площадка</a>
+                <a href="#" class="nav-link">Создавать</a>
+                <a href="#" class="nav-link">Робуксы</a>
+                <a href="#" class="nav-link">Каталог</a>
+                <a href="#" class="nav-link">Премиум</a>
+            </div>
+            <div class="nav-actions">
+                <input type="text" class="search-box" placeholder="Поиск">
+                <button class="login-btn">Войти</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
     <div class="container">
         <div class="header">
             <div class="logo">Roblox</div>
