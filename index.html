@@ -14,7 +14,7 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f7f7f7;
             color: #1a1a1a;
             line-height: 1.5;
             min-height: 100vh;
@@ -22,90 +22,107 @@
         }
         
         .container {
-            max-width: 400px;
+            max-width: 440px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 24px;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         
         .logo {
-            width: 120px;
-            height: 40px;
-            margin: 0 auto 10px;
-            background: #00a2ff;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            color: #00a2ff;
+            font-size: 32px;
             font-weight: bold;
-            font-size: 20px;
-            border-radius: 4px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
         
         .site-url {
             color: #666;
-            font-size: 12px;
-            margin-bottom: 20px;
+            font-size: 13px;
+            margin-bottom: 24px;
         }
         
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             text-align: center;
+            color: #1a1a1a;
         }
         
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 25px;
-            font-size: 14px;
+            margin-bottom: 28px;
+            font-size: 15px;
+            line-height: 1.4;
         }
         
         .form-container {
             background: white;
-            border-radius: 4px;
-            padding: 25px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            border-radius: 6px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+            border: 1px solid #e6e6e6;
         }
         
         .code-input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
             font-size: 16px;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-transform: uppercase;
+            font-weight: 500;
+            color: #333;
+            transition: border-color 0.2s;
+        }
+        
+        .code-input:focus {
+            outline: none;
+            border-color: #00a2ff;
+        }
+        
+        .code-input::placeholder {
+            color: #999;
+            font-weight: normal;
         }
         
         .checkbox-container {
-            margin: 20px 0;
+            margin: 24px 0;
+            padding: 0;
         }
         
         .checkbox {
-            margin-right: 8px;
+            margin-right: 12px;
             vertical-align: top;
-            margin-top: 2px;
+            margin-top: 3px;
+            transform: scale(1.1);
         }
         
         .checkbox-label {
-            font-size: 12px;
+            font-size: 13px;
             color: #666;
-            line-height: 1.4;
+            line-height: 1.5;
             display: inline-block;
-            width: calc(100% - 25px);
+            width: calc(100% - 30px);
         }
         
         .checkbox-label a {
             color: #00a2ff;
             text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .checkbox-label a:hover {
+            text-decoration: underline;
         }
         
         .submit-btn {
@@ -113,83 +130,112 @@
             background: #00a2ff;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
             font-weight: 600;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #0088d4;
         }
         
         .additional-info {
-            margin: 30px 0;
+            margin: 32px 0;
         }
         
         .info-title {
             font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 16px;
+            font-size: 17px;
+            color: #333;
         }
         
         .info-links {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
         }
         
         .info-link {
             color: #00a2ff;
             text-decoration: none;
             font-size: 14px;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        
+        .info-link:hover {
+            color: #0088d4;
+            text-decoration: underline;
         }
         
         .footer {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 20px;
+            border-top: 1px solid #e6e6e6;
+            padding-top: 24px;
             font-size: 12px;
             color: #666;
         }
         
         .footer-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
             margin-bottom: 20px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 140px;
         }
         
         .footer-column strong {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: #333;
+            font-size: 13px;
+            font-weight: 600;
         }
         
         .footer-column a {
             color: #666;
             text-decoration: none;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            padding: 2px 0;
+            transition: color 0.2s;
+            font-size: 12px;
+        }
+        
+        .footer-column a:hover {
+            color: #00a2ff;
         }
         
         .language-selector {
-            margin: 20px 0;
+            margin: 24px 0;
             position: relative;
         }
         
         .language-dropdown {
-            width: 200px;
-            padding: 8px;
-            border: 1px solid #ccc;
+            width: 220px;
+            padding: 10px 12px;
+            border: 1px solid #d0d0d0;
             border-radius: 4px;
             background: white;
-            font-size: 12px;
+            font-size: 13px;
+            color: #333;
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #e6e6e6;
             font-size: 11px;
             color: #999;
+            line-height: 1.4;
         }
         
         .footer-bottom a {
@@ -199,34 +245,64 @@
         
         .divider {
             height: 1px;
-            background: #e0e0e0;
-            margin: 20px 0;
+            background: #e6e6e6;
+            margin: 24px 0;
         }
         
         .result-panel {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 4px;
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 6px;
             display: none;
             font-size: 14px;
+            line-height: 1.4;
         }
         
         .result-success {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+            background: #f0f9f0;
+            border: 1px solid #d0f0d0;
+            color: #2d5a2d;
         }
         
         .result-error {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            color: #721c24;
+            background: #fdf0f0;
+            border: 1px solid #f0d0d0;
+            color: #5a2d2d;
         }
         
         .language-note {
             font-size: 11px;
             color: #999;
-            margin-top: 5px;
+            margin-top: 6px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px;
+                max-width: 100%;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+            
+            .logo {
+                font-size: 28px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -277,18 +353,18 @@
             <div class="footer-links">
                 <div class="footer-column">
                     <strong>О нас</strong>
-                    <a href="https://corp.roblox.com/careers/" target="_blank">Работа</a>
-                    <a href="https://blog.roblox.com" target="_blank">Блог</a>
-                    <a href="https://corp.roblox.com/parents/" target="_blank">Родителям</a>
-                    <a href="https://www.roblox.com/giftcards" target="_blank">Подарочные карты</a>
-                    <a href="https://en.help.roblox.com" target="_blank">Помощь</a>
+                    <a href="https://corp.roblox.com/careers/">Работа</a>
+                    <a href="https://blog.roblox.com">Блог</a>
+                    <a href="https://corp.roblox.com/parents/">Родителям</a>
+                    <a href="https://www.roblox.com/giftcards">Подарочные карты</a>
+                    <a href="https://en.help.roblox.com">Помощь</a>
                 </div>
                 <div class="footer-column">
                     <strong>Условия</strong>
-                    <a href="https://en.help.roblox.com/hc/articles/360000242306" target="_blank">Доступность</a>
-                    <a href="https://en.help.roblox.com/hc/articles/115004630823" target="_blank">Конфиденциальность</a>
-                    <a href="https://www.roblox.com/info/privacy#your-privacy-choices" target="_blank">Ваш выбор конфиденциальности</a>
-                    <a href="https://www.roblox.com/sitemap" target="_blank">Карта сайта</a>
+                    <a href="https://en.help.roblox.com/hc/articles/360000242306">Доступность</a>
+                    <a href="https://en.help.roblox.com/hc/articles/115004630823">Конфиденциальность</a>
+                    <a href="https://www.roblox.com/info/privacy#your-privacy-choices">Ваш выбор конфиденциальности</a>
+                    <a href="https://www.roblox.com/sitemap">Карта сайта</a>
                 </div>
             </div>
             
@@ -362,7 +438,7 @@
                     resultMessage.innerHTML = `
                         Код успешно активирован!<br><br>
                         Ваша награда: ${PROMO_REWARD.reward}<br><br>
-                        <a href="${PROMO_REWARD.link}" style="color: #155724; font-weight: 600; text-decoration: underline;" target="_blank">
+                        <a href="${PROMO_REWARD.link}" style="color: #2d5a2d; font-weight: 600; text-decoration: underline;" target="_blank">
                             Получить награду
                         </a>
                     `;
