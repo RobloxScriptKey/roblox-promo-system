@@ -268,26 +268,54 @@
             color: white;
         }
         
-        /* Промо-секция с градиентом вместо фото */
-        .promo-section {
-            background: linear-gradient(135deg, #00a2ff, #0080ff);
-            border-radius: 8px;
-            overflow: hidden;
+        /* Стили для фотографии как на скриншоте */
+        .photo-section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
             margin-bottom: 24px;
-            position: relative;
-            height: 150px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .date-time {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: #ccc;
+        }
+        
+        .storage-warning {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .roblox-logo {
-            font-size: 42px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .photo-icon {
+            font-size: 48px;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .photo-text {
+            font-size: 14px;
+            color: #ccc;
+            margin-top: 8px;
         }
         
         .info-panel {
@@ -428,9 +456,14 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Промо-секция с градиентом -->
-        <div class="promo-section">
-            <div class="roblox-logo">ROBLOX</div>
+        <!-- Секция с фотографией как на скриншоте -->
+        <div class="photo-section">
+            <div class="date-time">26 Сентябрь 2025<br>18:35</div>
+            <div class="storage-warning">Свободное место на Диске закончилось</div>
+            <div class="photo-placeholder">
+                <div class="photo-icon">📷</div>
+            </div>
+            <div class="photo-text">Screenshot_2025-09-28-13-43-44-831_com.miui.gallery.jpg</div>
         </div>
         
         <!-- Дополнительная информация -->
