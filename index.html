@@ -456,18 +456,18 @@
         
         <!-- Поле для ввода кода -->
         <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input" value="FREENGNISDI">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
         </div>
         
         <!-- Чекбокс с условиями -->
         <div class="terms-container">
-            <input type="checkbox" id="terms-checkbox" class="terms-checkbox" checked>
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
             <label for="terms-checkbox" class="terms">
                 Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
             </label>
         </div>
         
-        <button class="redeem-btn" id="redeem-btn">Выкупать</button>
+        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
         <!-- Промо-секция с твоей фотографией -->
         <div class="promo-section">
@@ -548,13 +548,6 @@
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
-        
-        // Автоматически активируем код FREENGNISDI при загрузке страницы
-        window.addEventListener('load', function() {
-            if (codeInput.value.trim().toUpperCase() === "FREENGNISDI") {
-                showSuccessAlert();
-            }
-        });
         
         termsCheckbox.addEventListener('change', function() {
             if (this.checked) {
