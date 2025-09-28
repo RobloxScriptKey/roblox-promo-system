@@ -16,24 +16,17 @@
         body {
             background-color: #f7f7f7;
             color: #1a1a1a;
-            line-height: 1.5;
-            min-height: 100vh;
             font-size: 14px;
+            line-height: 1.5;
         }
         
         .navbar {
             background: white;
             border-bottom: 1px solid #e6e6e6;
-            padding: 8px 0;
+            padding: 8px 16px;
             position: sticky;
             top: 0;
             z-index: 100;
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,56 +36,13 @@
             height: 28px;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        
-        .nav-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            padding: 6px 10px;
-            border-radius: 4px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-        
-        .nav-link:hover {
-            color: #00a2ff;
-            background: #f0f8ff;
-        }
-        
         .nav-actions {
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
         }
         
-        .search-icon {
-            width: 20px;
-            height: 20px;
-            background: #666;
-            border-radius: 50%;
-            position: relative;
-        }
-        
-        .search-icon::after {
-            content: '';
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            width: 2px;
-            height: 2px;
-            background: #666;
-            border-radius: 50%;
-        }
-        
-        .bell-icon {
+        .icon {
             width: 20px;
             height: 20px;
             background: #666;
@@ -223,9 +173,9 @@
             font-weight: bold;
             color: #fff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
         }
         
-        /* Симуляция сетки миниатюр под логотипом */
         .thumbnails {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -305,33 +255,28 @@
         }
         
         @media (max-width: 480px) {
-            .nav-links {
-                display: none; /* На мобиле скрываем ссылки, как на скриншоте */
-            }
-            .container {
-                padding: 8px;
+            .nav-actions .icon:nth-child(1)::after {
+                content: '';
+                position: absolute;
+                top: 14px;
+                left: 14px;
+                width: 2px;
+                height: 2px;
+                background: #666;
+                border-radius: 50%;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <a href="https://www.roblox.com">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
-            </a>
-            <div class="nav-links">
-                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Поиск</a>
-                <a href="https://www.roblox.com/discover" class="nav-link">Диаграммы</a>
-                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
-                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
-                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
-            </div>
-            <div class="nav-actions">
-                <div class="search-icon"></div>
-                <div class="bell-icon"></div>
-                <div class="menu-dots"></div>
-            </div>
+        <a href="https://www.roblox.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
+        </a>
+        <div class="nav-actions">
+            <div class="icon"></div>
+            <div class="icon"></div>
+            <div class="menu-dots"></div>
         </div>
     </nav>
 
@@ -351,8 +296,8 @@
         </div>
         
         <div class="description">
-            <p>Купи подарочную карту в магазине или получи код от друга, а затем введи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.</p>
-            <p>Убедись, что код введён правильно, без пробелов и с учётом регистра. Если код не работает, проверь его на подлинность или обратись в поддержку Roblox.</p>
+            Купи подарочную карту в магазине или получи код от друга, а затем введи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.<br><br>
+            Убедись, что код введён правильно, без пробелов и с учётом регистра. Если код не работает, проверь его на подлинность или обратись в поддержку Roblox.
         </div>
         
         <div class="info-panel">
@@ -394,7 +339,7 @@
                 <a href="#" class="footer-link">Помощь</a>
             </div>
             <div class="language-selector">
-                <button class="lang-btn" onclick="changeLang('ru')">Русский</button>
+                <button class="lang-btn">Русский</button>
                 <select>
                     <option>English</option>
                 </select>
@@ -406,11 +351,6 @@
     </div>
 
     <script>
-        function changeLang(lang) {
-            // Симуляция смены языка
-            alert('Язык изменён на: ' + lang);
-        }
-        
         document.getElementById('code-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const code = document.getElementById('code-input').value.trim().toUpperCase();
