@@ -154,6 +154,20 @@
             color: #333;
         }
         
+        .code-input-container {
+            margin-bottom: 16px;
+        }
+        
+        .code-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
         .terms-container {
             margin-bottom: 16px;
             display: flex;
@@ -200,6 +214,32 @@
         .redeem-btn:disabled {
             background: #cccccc;
             cursor: not-allowed;
+        }
+        
+        .success-message {
+            background: #e8f7e8;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success-title {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+        
+        .back-link {
+            color: #00a2ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
         }
         
         /* Промо-секция с твоей фотографией */
@@ -252,70 +292,6 @@
             border-radius: 4px;
             background-size: cover;
             background-position: center;
-        }
-        
-        /* Стили для модального окна */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 24px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
-        
-        .modal-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .code-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 16px;
-        }
-        
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-        }
-        
-        .modal-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .cancel-btn {
-            background: #f0f0f0;
-            color: #666;
-        }
-        
-        .activate-btn {
-            background: #00a2ff;
-            color: white;
         }
         
         .info-panel {
@@ -452,6 +428,11 @@
         <!-- Просто текст "Код" как в оригинале -->
         <div class="code-label">Код</div>
         
+        <!-- Поле для ввода кода -->
+        <div class="code-input-container">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+        </div>
+        
         <!-- Чекбокс с условиями -->
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
@@ -461,6 +442,12 @@
         </div>
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        
+        <!-- Сообщение об успешной активации -->
+        <div class="success-message" id="success-message">
+            <div class="success-title">Code Successfully Redeemed</div>
+            <a href="#" class="back-link" id="back-link">Back to Redeem</a>
+        </div>
         
         <!-- Промо-секция с твоей фотографией -->
         <div class="promo-section">
@@ -522,25 +509,15 @@
         </div>
     </div>
 
-    <!-- Модальное окно для ввода кода -->
-    <div class="modal" id="code-modal">
-        <div class="modal-content">
-            <div class="modal-title">Введите код</div>
-            <input type="text" class="code-input" placeholder="Введите код" id="modal-code-input">
-            <div class="modal-buttons">
-                <button class="modal-btn cancel-btn" id="cancel-btn">Отмена</button>
-                <button class="modal-btn activate-btn" id="activate-btn">Активировать</button>
-            </div>
-        </div>
-    </div>
-
     <script>
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
-        const modal = document.getElementById('code-modal');
-        const cancelBtn = document.getElementById('cancel-btn');
-        const activateBtn = document.getElementById('activate-btn');
-        const codeInput = document.getElementById('modal-code-input');
+        const codeInput = document.getElementById('code-input');
+        const successMessage = document.getElementById('success-message');
+        const backLink = document.getElementById('back-link');
+        
+        // Список действительных кодов
+        const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ"];
         
         termsCheckbox.addEventListener('change', function() {
             if (this.checked) {
@@ -556,41 +533,34 @@
                 return;
             }
             
-            // Показываем модальное окно для ввода кода
-            modal.style.display = 'flex';
-            codeInput.focus();
-        });
-        
-        cancelBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
-            codeInput.value = '';
-        });
-        
-        activateBtn.addEventListener('click', function() {
             const code = codeInput.value.trim();
             if (!code) {
                 alert('Пожалуйста, введите код.');
                 return;
             }
             
-            // Пример проверки кода
-            const validCodes = ["TWEETROBLOX", "ROBLOXEDU", "FREEROBUX"];
+            // Проверка кода
             if (validCodes.includes(code.toUpperCase())) {
-                alert('Код активирован! Награда: 100 Robux. Баланс обновлён.');
+                // Показываем сообщение об успешной активации
+                successMessage.style.display = 'block';
+                codeInput.disabled = true;
+                redeemBtn.disabled = true;
+                termsCheckbox.disabled = true;
             } else {
                 alert('Неверный код. Проверьте ввод и попробуйте снова.');
             }
-            
-            modal.style.display = 'none';
-            codeInput.value = '';
         });
         
-        // Закрытие модального окна при клике вне его
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                codeInput.value = '';
-            }
+        // Обработчик для кнопки "Back to Redeem"
+        backLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Сбрасываем форму
+            successMessage.style.display = 'none';
+            codeInput.disabled = false;
+            codeInput.value = '';
+            termsCheckbox.checked = false;
+            termsCheckbox.disabled = false;
+            redeemBtn.disabled = true;
         });
 
         // Добавляем функциональность для поиска
