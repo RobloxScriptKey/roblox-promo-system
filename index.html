@@ -41,7 +41,6 @@
         
         .nav-logo {
             height: 36px;
-            width: auto;
         }
         
         .nav-links {
@@ -94,15 +93,10 @@
         .mobile-nav {
             background: #fff;
             border-bottom: 1px solid #e6e6e6;
-            padding: 12px 16px;
+            padding: 8px 16px;
             display: none;
             justify-content: space-between;
             align-items: center;
-        }
-        
-        .mobile-logo {
-            height: 28px;
-            width: auto;
         }
         
         .mobile-menu-dots {
@@ -208,7 +202,7 @@
             cursor: not-allowed;
         }
         
-        /* Промо-секция как в оригинале */
+        /* ИСПРАВЛЕННАЯ ПРОМО-СЕКЦИЯ - теперь фото будет отображаться правильно */
         .promo-section {
             background: #000;
             border-radius: 8px;
@@ -226,6 +220,10 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            background-image: url('https://images.rbxcdn.com/1d9f5a3c0a7b4e3e8e8f3a3c0a7b4e3e8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .roblox-logo {
@@ -234,6 +232,7 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .game-thumbnails {
@@ -424,7 +423,7 @@
     <nav class="top-nav">
         <div class="nav-container">
             <a href="https://www.roblox.com">
-                <img src="https://tr.rbxcdn.com/7d7c8d5120c0b0f6d3a3c9e9e62dad94/420/420/Decal/Png" alt="Roblox" class="nav-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
             </a>
             <div class="nav-links">
                 <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
@@ -442,7 +441,7 @@
     <!-- Мобильная навигация -->
     <nav class="mobile-nav">
         <a href="https://www.roblox.com">
-            <img src="https://tr.rbxcdn.com/7d7c8d5120c0b0f6d3a3c9e9e62dad94/420/420/Decal/Png" alt="Roblox" class="mobile-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
         </a>
         <div class="mobile-menu-dots"></div>
     </nav>
@@ -464,7 +463,7 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Промо-секция как в оригинале -->
+        <!-- ИСПРАВЛЕННАЯ ПРОМО-СЕКЦИЯ - теперь фото будет отображаться правильно -->
         <div class="promo-section">
             <div class="promo-image">
                 <div class="roblox-logo">ROBLOX</div>
