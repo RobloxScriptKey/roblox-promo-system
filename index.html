@@ -146,6 +146,31 @@
             margin-bottom: 24px;
         }
         
+        .code-section {
+            background: #fff;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 16px;
+        }
+        
+        .code-label {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .code-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            text-align: center;
+        }
+        
         .terms-container {
             margin-bottom: 16px;
             display: flex;
@@ -235,54 +260,6 @@
             text-decoration: underline;
         }
 
-        /* Промо-секция с изображением как в оригинале */
-        .promo-section {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            position: relative;
-            height: 200px;
-        }
-        
-        .promo-image {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .roblox-logo {
-            font-size: 48px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            text-transform: uppercase;
-        }
-        
-        .thumbnails {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 4px;
-            padding: 8px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-        
-        .thumbnail {
-            width: 100%;
-            height: 60px;
-            background: #333;
-            border-radius: 4px;
-            background-size: cover;
-            background-position: center;
-        }
-        
         .footer {
             text-align: center;
             padding: 16px 0;
@@ -369,6 +346,13 @@
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
         
+        <!-- Поле Код -->
+        <div class="code-section">
+            <div class="code-label">Код</div>
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+        </div>
+        
+        <!-- Чекбокс с условиями -->
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
             <label for="terms-checkbox" class="terms">
@@ -377,27 +361,6 @@
         </div>
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
-        
-        <!-- Промо-секция с изображением как в оригинале -->
-        <div class="promo-section">
-            <div class="promo-image">
-                <div class="roblox-logo">ROBLOX</div>
-            </div>
-            <div class="thumbnails">
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-                <div class="thumbnail"></div>
-            </div>
-        </div>
         
         <div class="info-panel">
             <div class="info-title">Дополнительная информация</div>
