@@ -268,54 +268,72 @@
             color: white;
         }
         
-        /* Стили для фотографии как на скриншоте */
-        .photo-section {
-            background: #1a1a1a;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 24px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .date-time {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 16px;
-            color: #ccc;
-        }
-        
-        .storage-warning {
-            font-size: 18px;
-            font-weight: 600;
-            color: #ff6b6b;
-            margin-bottom: 20px;
-        }
-        
-        .photo-placeholder {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        /* Промо-секция как на оригинальном сайте Roblox */
+        .promo-section {
+            background: #000;
             border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            position: relative;
+            height: 200px;
+        }
+        
+        .promo-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 16px;
             position: relative;
-            overflow: hidden;
         }
         
-        .photo-icon {
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .roblox-logo {
             font-size: 48px;
-            color: white;
-            opacity: 0.8;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
         
-        .photo-text {
-            font-size: 14px;
-            color: #ccc;
-            margin-top: 8px;
+        .game-thumbnails {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            padding: 8px;
+            background: rgba(0,0,0,0.9);
+        }
+        
+        .game-thumb {
+            aspect-ratio: 1;
+            background: #333;
+            border-radius: 4px;
+            background: linear-gradient(45deg, #00a2ff, #0080ff);
+        }
+        
+        .game-thumb:nth-child(2) {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        }
+        
+        .game-thumb:nth-child(3) {
+            background: linear-gradient(45deg, #4ecdc4, #88d8c0);
+        }
+        
+        .game-thumb:nth-child(4) {
+            background: linear-gradient(45deg, #96ceb4, #b8e6b8);
         }
         
         .info-panel {
@@ -403,6 +421,10 @@
             .mobile-nav {
                 display: flex;
             }
+            
+            .game-thumbnails {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
     </style>
 </head>
@@ -456,14 +478,17 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Секция с фотографией как на скриншоте -->
-        <div class="photo-section">
-            <div class="date-time">26 Сентябрь 2025<br>18:35</div>
-            <div class="storage-warning">Свободное место на Диске закончилось</div>
-            <div class="photo-placeholder">
-                <div class="photo-icon">📷</div>
+        <!-- Промо-секция как на оригинальном сайте -->
+        <div class="promo-section">
+            <div class="promo-image">
+                <div class="roblox-logo">ROBLOX</div>
             </div>
-            <div class="photo-text">Screenshot_2025-09-28-13-43-44-831_com.miui.gallery.jpg</div>
+            <div class="game-thumbnails">
+                <div class="game-thumb"></div>
+                <div class="game-thumb"></div>
+                <div class="game-thumb"></div>
+                <div class="game-thumb"></div>
+            </div>
         </div>
         
         <!-- Дополнительная информация -->
