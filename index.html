@@ -268,27 +268,17 @@
             color: white;
         }
         
-        /* Промо-секция с фотографией */
+        /* Промо-секция с градиентом вместо фото */
         .promo-section {
-            background: #000;
+            background: linear-gradient(135deg, #00a2ff, #0080ff);
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 24px;
             position: relative;
-            height: 250px;
-        }
-        
-        .promo-image {
-            width: 100%;
-            height: 100%;
-            background-image: url('https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            height: 150px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
         
         .roblox-logo {
@@ -297,27 +287,7 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        
-        .game-thumbnails {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            padding: 8px;
-            background: rgba(0,0,0,0.8);
-        }
-        
-        .game-thumb {
-            aspect-ratio: 1;
-            background: #333;
-            border-radius: 4px;
-            background-size: cover;
-            background-position: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .info-panel {
@@ -405,10 +375,6 @@
             .mobile-nav {
                 display: flex;
             }
-            
-            .game-thumbnails {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
     </style>
 </head>
@@ -462,21 +428,9 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Промо-секция с фотографией -->
+        <!-- Промо-секция с градиентом -->
         <div class="promo-section">
-            <div class="promo-image">
-                <div class="roblox-logo">ROBLOX</div>
-            </div>
-            <div class="game-thumbnails">
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-            </div>
+            <div class="roblox-logo">ROBLOX</div>
         </div>
         
         <!-- Дополнительная информация -->
