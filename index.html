@@ -202,7 +202,7 @@
             cursor: not-allowed;
         }
         
-        /* Промо-секция с фотографией */
+        /* Промо-секция с работающей фотографией */
         .promo-section {
             background: #000;
             border-radius: 8px;
@@ -223,6 +223,18 @@
             align-items: center;
             justify-content: center;
             position: relative;
+        }
+        
+        /* Запасной вариант если фото не загрузится */
+        .promo-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            z-index: -1;
         }
         
         .roblox-logo {
