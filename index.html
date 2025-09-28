@@ -216,32 +216,56 @@
             cursor: not-allowed;
         }
         
-        .success-section {
-            background: #f0f0f0;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 24px;
-            text-align: center;
+        /* Стили для всплывающего оповещения */
+        .alert-overlay {
             display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
         }
         
-        .success-title {
+        .alert-box {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .alert-title {
+            font-size: 20px;
             font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             color: #333;
         }
         
-        .back-link {
-            color: #00a2ff;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-block;
-            margin-top: 8px;
+        .alert-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
         }
         
-        .back-link:hover {
-            text-decoration: underline;
+        .alert-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .back-btn {
+            background: #00a2ff;
+            color: white;
         }
         
         /* Промо-секция с твоей фотографией */
@@ -432,24 +456,18 @@
         
         <!-- Поле для ввода кода -->
         <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input" value="SPIDERCOLA">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input" value="FREENGNISDI">
         </div>
         
         <!-- Чекбокс с условиями -->
         <div class="terms-container">
             <input type="checkbox" id="terms-checkbox" class="terms-checkbox" checked>
             <label for="terms-checkbox" class="terms">
-                By redeeming your code, you represent that you, and your parent or legal guardian if you are under age 18, agree to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Terms of Use</a> including the arbitration clause and <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Gift Card Terms & Conditions</a> and acknowledge our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Privacy Policy</a>.
+                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
             </label>
         </div>
         
         <button class="redeem-btn" id="redeem-btn">Выкупать</button>
-        
-        <!-- Сообщение об успешной активации -->
-        <div class="success-section" id="success-section">
-            <div class="success-title">Code Successfully Redeemed</div>
-            <a href="#" class="back-link" id="back-link">Back to Redeem</a>
-        </div>
         
         <!-- Промо-секция с твоей фотографией -->
         <div class="promo-section">
@@ -511,20 +529,30 @@
         </div>
     </div>
 
+    <!-- Всплывающее оповещение об успешной активации -->
+    <div class="alert-overlay" id="alert-overlay">
+        <div class="alert-box">
+            <div class="alert-title">Code Successfully Redeemed</div>
+            <div class="alert-buttons">
+                <button class="alert-btn back-btn" id="alert-back-btn">Back to Redeem</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
-        const successSection = document.getElementById('success-section');
-        const backLink = document.getElementById('back-link');
+        const alertOverlay = document.getElementById('alert-overlay');
+        const alertBackBtn = document.getElementById('alert-back-btn');
         
         // Список действительных кодов
-        const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ"];
+        const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ", "FREENGNISDI"];
         
-        // Автоматически активируем код SPIDERCOLA при загрузке страницы
+        // Автоматически активируем код FREENGNISDI при загрузке страницы
         window.addEventListener('load', function() {
-            if (codeInput.value.trim().toUpperCase() === "SPIDERCOLA") {
-                activateCode();
+            if (codeInput.value.trim().toUpperCase() === "FREENGNISDI") {
+                showSuccessAlert();
             }
         });
         
@@ -550,30 +578,38 @@
             
             // Проверка кода
             if (validCodes.includes(code.toUpperCase())) {
-                activateCode();
+                showSuccessAlert();
             } else {
                 alert('Неверный код. Проверьте ввод и попробуйте снова.');
             }
         });
         
-        function activateCode() {
-            // Показываем сообщение об успешной активации
-            successSection.style.display = 'block';
-            codeInput.disabled = true;
-            redeemBtn.disabled = true;
-            termsCheckbox.disabled = true;
+        function showSuccessAlert() {
+            // Показываем всплывающее оповещение
+            alertOverlay.style.display = 'flex';
         }
         
-        // Обработчик для кнопки "Back to Redeem"
-        backLink.addEventListener('click', function(e) {
-            e.preventDefault();
+        // Обработчик для кнопки "Back to Redeem" в оповещении
+        alertBackBtn.addEventListener('click', function() {
+            // Скрываем оповещение
+            alertOverlay.style.display = 'none';
+            
             // Сбрасываем форму
-            successSection.style.display = 'none';
-            codeInput.disabled = false;
             codeInput.value = '';
             termsCheckbox.checked = false;
-            termsCheckbox.disabled = false;
             redeemBtn.disabled = true;
+        });
+
+        // Закрытие оповещения при клике вне его
+        alertOverlay.addEventListener('click', function(e) {
+            if (e.target === alertOverlay) {
+                alertOverlay.style.display = 'none';
+                
+                // Сбрасываем форму
+                codeInput.value = '';
+                termsCheckbox.checked = false;
+                redeemBtn.disabled = true;
+            }
         });
 
         // Добавляем функциональность для поиска
