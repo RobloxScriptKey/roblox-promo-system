@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Gotham SSm", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
         
         body {
@@ -40,29 +40,10 @@
         }
         
         .menu-dots {
-            width: 20px;
-            height: 4px;
+            width: 4px;
+            height: 20px;
             background: #666;
             border-radius: 2px;
-            position: relative;
-        }
-        
-        .menu-dots::before,
-        .menu-dots::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 4px;
-            background: #666;
-            border-radius: 2px;
-        }
-        
-        .menu-dots::before {
-            top: -8px;
-        }
-        
-        .menu-dots::after {
-            top: 8px;
         }
         
         .container {
@@ -86,30 +67,11 @@
             margin-bottom: 24px;
         }
         
-        .terms-container {
-            margin-bottom: 16px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .terms-checkbox {
-            margin-right: 8px;
-            margin-top: 2px;
-        }
-        
         .terms {
             font-size: 12px;
             color: #666;
-            text-align: left;
-        }
-        
-        .terms a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        
-        .terms a:hover {
-            text-decoration: underline;
+            margin-bottom: 16px;
+            text-align: center;
         }
         
         .redeem-btn {
@@ -122,16 +84,10 @@
             border-radius: 4px;
             cursor: pointer;
             margin-bottom: 12px;
-            font-weight: 600;
         }
         
         .redeem-btn:hover {
             background: #008ccf;
-        }
-        
-        .redeem-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
         }
         
         .code-section {
@@ -150,28 +106,6 @@
             font-size: 16px;
             text-align: center;
             margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            background: #00a2ff;
-            color: #fff;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        .submit-btn:hover {
-            background: #008ccf;
-        }
-        
-        .submit-btn:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
         }
         
         .description {
@@ -213,15 +147,6 @@
             color: #00a2ff;
         }
         
-        .info-list a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        
-        .info-list a:hover {
-            text-decoration: underline;
-        }
-        
         .promo-section {
             background: #000;
             border-radius: 8px;
@@ -252,9 +177,10 @@
             gap: 4px;
             padding: 8px;
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            width: 90%;
         }
         
         .thumbnail {
@@ -283,49 +209,12 @@
             margin-right: 8px;
             cursor: pointer;
         }
-        
-        .result-panel {
-            margin-top: 16px;
-            padding: 16px;
-            border-radius: 6px;
-            display: none;
-        }
-        
-        .result-success {
-            background: #f0f9f0;
-            border: 1px solid #d0f0d0;
-            color: #2d5a2d;
-        }
-        
-        .result-error {
-            background: #fdf2f2;
-            border: 1px solid #f0d0d0;
-            color: #a52a2a;
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 8px 8px 0;
-            font-size: 12px;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <a href="https://www.roblox.com">
-            <img src="https://images.rbxcdn.com/c8c5d7a1a7d56c6f4b1e5e8e5e8e5e8e" alt="Roblox" class="nav-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
         </a>
         <div class="menu-dots"></div>
     </nav>
@@ -334,37 +223,27 @@
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
         
-        <div class="terms-container">
-            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
-            <label for="terms-checkbox" class="terms">
-                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="#">Условиями использования</a>, включая арбитражную оговорку и <a href="#">Условия использования подарочных карт</a>, а также с нашей <a href="#">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
-            </label>
-        </div>
+        <p class="terms">
+            Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими условиями использования, включая арбитражную оговорку и Условия использования подарочных карт, а также с нашей Политикой конфиденциальности. Вы также подтверждаете и соглашаетесь с тем, что сумма указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+        </p>
         
-        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        <button class="redeem-btn">Выкупать</button>
         
         <div class="code-section">
-            <form id="code-form">
-                <input type="text" class="code-input" placeholder="Код" required id="code-input">
-                <button type="submit" class="submit-btn" id="submit-btn" disabled>Активировать код</button>
-            </form>
-            
-            <div class="result-panel" id="result-panel">
-                <div id="result-message"></div>
-            </div>
+            <input type="text" class="code-input" placeholder="Код">
         </div>
         
         <div class="description">
-            Купи подарочную карту в магазине или получи код от друга, а затем введи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.
+            Купи подарочную карту в магазине или получи код от друга, а затем вводи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.
         </div>
         
         <div class="info-panel">
             <div class="info-title">Дополнительная информация</div>
             <ul class="info-list">
-                <li><a href="#">Как использовать подарочные карты (видео)</a></li>
-                <li><a href="#">Дополнительная информация о подарочных картах</a></li>
-                <li><a href="#">Как использовать коды виртуальных предметов</a></li>
-                <li><a href="#">Как использовать промокоды</a></li>
+                <li>Как использовать подарочные карты (видео)</li>
+                <li>Дополнительная информация о подарочных картах</li>
+                <li>Как использовать коды виртуальных предметов</li>
+                <li>Как использовать промокоды</li>
             </ul>
         </div>
         
@@ -395,69 +274,8 @@
                     <option>English</option>
                 </select>
             </div>
-            
-            <div class="footer-links">
-                <a href="#">О нас</a>
-                <a href="#">Работа</a>
-                <a href="#">Блог</a>
-                <a href="#">Родители</a>
-                <a href="#">Подарочные карты</a>
-                <a href="#">Помощь</a>
-                <a href="#">Условия</a>
-                <a href="#">Доступность</a>
-                <a href="#">Конфиденциальность</a>
-                <a href="#">Ваш выбор конфиденциальности</a>
-                <a href="#">Карта сайта</a>
-            </div>
-            
-            <p>©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются товарными знаками или зарегистрированными товарными знаками Roblox Corporation в США и других странах.</p>
+            <p>©2023 Roblox Corporation. Roblox, avenue Roblox и Powering transportation являются нашими характеристиками и негативными для использования товарищей. США и другие страны.</p>
         </div>
     </div>
-
-    <script>
-        const termsCheckbox = document.getElementById('terms-checkbox');
-        const redeemBtn = document.getElementById('redeem-btn');
-        const submitBtn = document.getElementById('submit-btn');
-        const codeInput = document.getElementById('code-input');
-        
-        termsCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                redeemBtn.disabled = false;
-                submitBtn.disabled = false;
-            } else {
-                redeemBtn.disabled = true;
-                submitBtn.disabled = true;
-            }
-        });
-        
-        document.getElementById('code-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const code = codeInput.value.trim().toUpperCase();
-            const resultPanel = document.getElementById('result-panel');
-            const resultMessage = document.getElementById('result-message');
-            
-            // Примеры валидных кодов для демонстрации
-            const validCodes = ["TWEETROBLOX", "ROBLOXEDU", "FREEROBUX"];
-            
-            if (validCodes.includes(code)) {
-                resultPanel.className = 'result-panel result-success';
-                resultMessage.textContent = 'Код активирован! Награда: 100 Robux. Баланс обновлён.';
-            } else {
-                resultPanel.className = 'result-panel result-error';
-                resultMessage.textContent = 'Неверный код. Проверьте ввод и попробуйте снова.';
-            }
-            resultPanel.style.display = 'block';
-        });
-        
-        redeemBtn.addEventListener('click', function() {
-            if (!termsCheckbox.checked) {
-                alert('Пожалуйста, подтвердите согласие с условиями использования.');
-                return;
-            }
-            
-            // В реальном приложении здесь будет логика для открытия формы выкупа
-            alert('Функция выкупа будет реализована в полной версии приложения.');
-        });
-    </script>
 </body>
 </html>
