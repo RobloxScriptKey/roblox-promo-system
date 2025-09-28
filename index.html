@@ -14,8 +14,8 @@
         }
         
         body {
-            background-color: #fff;
-            color: #333;
+            background-color: #f7f7f7;
+            color: #1a1a1a;
             font-size: 14px;
             line-height: 1.5;
             display: flex;
@@ -24,7 +24,7 @@
         }
         
         .navbar {
-            background: #fff;
+            background: white;
             border-bottom: 1px solid #e6e6e6;
             padding: 8px 16px;
             display: flex;
@@ -37,6 +37,29 @@
         
         .nav-logo {
             height: 28px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #00a2ff;
+            background: #f0f8ff;
         }
         
         .menu-dots {
@@ -67,8 +90,31 @@
             margin-bottom: 24px;
         }
         
+        .terms {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .redeem-btn {
+            width: 100%;
+            background: #00a2ff;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 12px;
+        }
+        
+        .redeem-btn:hover {
+            background: #008ccf;
+        }
+        
         .code-section {
-            background: #fff;
+            background: white;
             padding: 16px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -104,14 +150,14 @@
             font-size: 13px;
             color: #666;
             margin-bottom: 16px;
-            text-align: center;
+            line-height: 1.4;
         }
         
         .info-panel {
-            background: #f5f5f5;
+            background: #f0f0f0;
             border-radius: 8px;
             padding: 16px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
         
         .info-title {
@@ -140,15 +186,21 @@
         }
         
         .promo-section {
-            background: #000;
-            border-radius: 8px;
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .promo-image {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 200px;
-            position: relative;
         }
         
         .roblox-logo {
@@ -156,7 +208,6 @@
             font-weight: bold;
             color: #fff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            text-transform: uppercase;
         }
         
         .thumbnails {
@@ -164,29 +215,44 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 4px;
             padding: 8px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 50%);
-            width: 90%;
+            background: #000;
         }
         
         .thumbnail {
             width: 100%;
             height: 60px;
-            background: #444;
+            background: #333;
             border-radius: 4px;
         }
         
         .footer {
+            background: white;
+            border-top: 1px solid #e6e6e6;
+            padding: 16px;
             text-align: center;
-            padding: 16px 0;
-            color: #999;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .footer-link {
+            color: #666;
+            text-decoration: none;
             font-size: 12px;
+            white-space: nowrap;
+        }
+        
+        .footer-link:hover {
+            color: #00a2ff;
         }
         
         .language-selector {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .lang-btn {
@@ -196,6 +262,11 @@
             border-radius: 4px;
             margin-right: 8px;
             cursor: pointer;
+        }
+        
+        .copyright {
+            font-size: 12px;
+            color: #999;
         }
         
         .result-panel {
@@ -216,6 +287,12 @@
             border: 1px solid #f0d0d0;
             color: #a52a2a;
         }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none; /* Скрываем ссылки на мобильной версии */
+            }
+        }
     </style>
 </head>
 <body>
@@ -223,12 +300,24 @@
         <a href="https://www.roblox.com">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
         </a>
+        <div class="nav-links">
+            <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
+            <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
+            <a href="https://create.roblox.com" class="nav-link">Создавать</a>
+            <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
+        </div>
         <div class="menu-dots"></div>
     </nav>
 
     <div class="container">
         <h1>Активировать коды Roblox</h1>
         <p class="subtitle">Введи код с подарочной карты, чтобы получить баланс и премиум.</p>
+        
+        <p class="terms">
+            Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="#">Условиями использования</a>, включая арбитражную оговорку и <a href="#">Условия использования подарочных карт</a>, а также с нашей <a href="#">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+        </p>
+        
+        <button class="redeem-btn">Выкупать</button>
         
         <div class="code-section">
             <form id="code-form">
@@ -242,7 +331,8 @@
         </div>
         
         <div class="description">
-            Купи подарочную карту в магазине или получи код от друга, а затем введи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.
+            Купи подарочную карту в магазине или получи код от друга, а затем введи его здесь, чтобы получить баланс. Подарочные карты можно купить в розничных магазинах или онлайн.<br><br>
+            Убедись, что код введён правильно, без пробелов и с учётом регистра. Если код не работает, проверь его на подлинность или обратись в поддержку Roblox.
         </div>
         
         <div class="info-panel">
@@ -255,7 +345,9 @@
         </div>
         
         <div class="promo-section">
-            <div class="roblox-logo">ROBLOX</div>
+            <div class="promo-image">
+                <div class="roblox-logo">ROBLOX</div>
+            </div>
             <div class="thumbnails">
                 <div class="thumbnail"></div>
                 <div class="thumbnail"></div>
@@ -273,13 +365,23 @@
         </div>
         
         <div class="footer">
+            <div class="footer-links">
+                <a href="#" class="footer-link">О нас</a>
+                <a href="#" class="footer-link">Карьера</a>
+                <a href="#" class="footer-link">Контакты</a>
+                <a href="#" class="footer-link">Бренд</a>
+                <a href="#" class="footer-link">Робуксы</a>
+                <a href="#" class="footer-link">Помощь</a>
+            </div>
             <div class="language-selector">
                 <button class="lang-btn">Русский</button>
                 <select>
                     <option>English</option>
                 </select>
             </div>
-            <p>© 2006-2025 Roblox Corporation. Roblox, "Robux" и Powering Imagination являются товарными знаками Roblox Corporation в США и других странах.</p>
+            <div class="copyright">
+                © 2006-2025 Roblox Corporation. Roblox, "Robux" и Powering Imagination являются товарными знаками Roblox Corporation в США и других странах.
+            </div>
         </div>
     </div>
 
