@@ -202,7 +202,7 @@
             cursor: not-allowed;
         }
         
-        /* Промо-секция как в оригинале */
+        /* Промо-секция с фотографией */
         .promo-section {
             background: #000;
             border-radius: 8px;
@@ -215,7 +215,10 @@
         .promo-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            background-image: url('https://share.google.com/images/pRbV8poz3YWfvaXi1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -228,6 +231,7 @@
             color: #fff;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
         
         .game-thumbnails {
@@ -458,7 +462,7 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Промо-секция как в оригинале -->
+        <!-- Промо-секция с фотографией -->
         <div class="promo-section">
             <div class="promo-image">
                 <div class="roblox-logo">ROBLOX</div>
