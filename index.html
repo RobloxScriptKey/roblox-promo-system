@@ -260,6 +260,54 @@
         .info-list a:hover {
             text-decoration: underline;
         }
+
+        /* Промо-секция с изображением как в оригинале */
+        .promo-section {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            position: relative;
+            height: 200px;
+        }
+        
+        .promo-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .roblox-logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+        }
+        
+        .thumbnails {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4px;
+            padding: 8px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 60px;
+            background: #333;
+            border-radius: 4px;
+            background-size: cover;
+            background-position: center;
+        }
         
         .footer {
             text-align: center;
@@ -360,6 +408,27 @@
         </div>
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        
+        <!-- Промо-секция с изображением как в оригинале -->
+        <div class="promo-section">
+            <div class="promo-image">
+                <div class="roblox-logo">ROBLOX</div>
+            </div>
+            <div class="thumbnails">
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+                <div class="thumbnail"></div>
+            </div>
+        </div>
         
         <div class="info-panel">
             <div class="info-title">Дополнительная информация</div>
