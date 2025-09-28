@@ -23,23 +23,83 @@
             min-height: 100vh;
         }
         
-        .navbar {
+        .top-nav {
             background: #fff;
             border-bottom: 1px solid #e6e6e6;
-            padding: 8px 16px;
+            padding: 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            height: 60px;
         }
         
         .nav-logo {
-            height: 28px;
+            height: 36px;
         }
         
-        .menu-dots {
+        .nav-links {
+            display: flex;
+            gap: 0;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 20px 16px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover {
+            color: #00a2ff;
+            border-bottom: 3px solid #00a2ff;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        .login-btn {
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        
+        .mobile-nav {
+            background: #fff;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 8px 16px;
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mobile-menu-dots {
             width: 20px;
             height: 4px;
             background: #666;
@@ -47,8 +107,8 @@
             position: relative;
         }
         
-        .menu-dots::before,
-        .menu-dots::after {
+        .mobile-menu-dots::before,
+        .mobile-menu-dots::after {
             content: '';
             position: absolute;
             width: 20px;
@@ -57,11 +117,11 @@
             border-radius: 2px;
         }
         
-        .menu-dots::before {
+        .mobile-menu-dots::before {
             top: -8px;
         }
         
-        .menu-dots::after {
+        .mobile-menu-dots::after {
             top: 8px;
         }
         
@@ -217,14 +277,44 @@
             font-size: 12px;
             line-height: 1.4;
         }
+        
+        @media (max-width: 768px) {
+            .top-nav {
+                display: none;
+            }
+            
+            .mobile-nav {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar">
+    <!-- Десктопная навигация -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <a href="https://www.roblox.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
+                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
+                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
+            </div>
+            <div class="nav-actions">
+                <input type="text" class="search-box" placeholder="Поиск">
+                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Мобильная навигация -->
+    <nav class="mobile-nav">
         <a href="https://www.roblox.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo" style="height: 28px;">
         </a>
-        <div class="menu-dots"></div>
+        <div class="mobile-menu-dots"></div>
     </nav>
 
     <div class="container">
