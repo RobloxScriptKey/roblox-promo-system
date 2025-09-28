@@ -183,23 +183,22 @@
         }
         
         .language-selector {
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
         
-        .lang-btn {
-            background: none;
+        .language-selector select {
+            padding: 6px 12px;
             border: 1px solid #ddd;
-            padding: 4px 8px;
             border-radius: 4px;
-            margin-right: 8px;
-            cursor: pointer;
+            background: white;
+            font-size: 13px;
         }
         
         .footer-links {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
         
         .footer-links a {
@@ -211,6 +210,12 @@
         
         .footer-links a:hover {
             text-decoration: underline;
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.4;
         }
     </style>
 </head>
@@ -247,9 +252,16 @@
         
         <div class="footer">
             <div class="language-selector">
-                <button class="lang-btn">Русский</button>
                 <select>
+                    <option>Русский</option>
                     <option>English</option>
+                    <option>Español</option>
+                    <option>Português</option>
+                    <option>Français</option>
+                    <option>Deutsch</option>
+                    <option>한국어</option>
+                    <option>日本語</option>
+                    <option>中文</option>
                 </select>
             </div>
             
@@ -267,7 +279,7 @@
                 <a href="#">Карта сайта</a>
             </div>
             
-            <p>©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются товарными знаками или зарегистрированными товарными знаками Roblox Corporation в США и других странах.</p>
+            <p class="copyright">©2025 Roblox Corporation. Roblox, логотип Roblox и Powering Imagination являются товарными знаками или зарегистрированными товарными знаками Roblox Corporation в США и других странах.</p>
         </div>
     </div>
 
