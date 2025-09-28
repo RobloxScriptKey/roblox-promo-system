@@ -268,72 +268,21 @@
             color: white;
         }
         
-        /* Промо-секция как на оригинальном сайте Roblox */
-        .promo-section {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
+        /* Стили для фотографии подарочной карты */
+        .photo-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 0;
             margin-bottom: 24px;
-            position: relative;
-            height: 200px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
-        .promo-image {
+        .gift-card-image {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            background-size: 400% 400%;
-            animation: gradientShift 8s ease infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .roblox-logo {
-            font-size: 48px;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        
-        .game-thumbnails {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2px;
-            padding: 8px;
-            background: rgba(0,0,0,0.9);
-        }
-        
-        .game-thumb {
-            aspect-ratio: 1;
-            background: #333;
-            border-radius: 4px;
-            background: linear-gradient(45deg, #00a2ff, #0080ff);
-        }
-        
-        .game-thumb:nth-child(2) {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-        }
-        
-        .game-thumb:nth-child(3) {
-            background: linear-gradient(45deg, #4ecdc4, #88d8c0);
-        }
-        
-        .game-thumb:nth-child(4) {
-            background: linear-gradient(45deg, #96ceb4, #b8e6b8);
+            height: auto;
+            display: block;
         }
         
         .info-panel {
@@ -421,10 +370,6 @@
             .mobile-nav {
                 display: flex;
             }
-            
-            .game-thumbnails {
-                grid-template-columns: repeat(3, 1fr);
-            }
         }
     </style>
 </head>
@@ -478,17 +423,9 @@
         
         <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
         
-        <!-- Промо-секция как на оригинальном сайте -->
-        <div class="promo-section">
-            <div class="promo-image">
-                <div class="roblox-logo">ROBLOX</div>
-            </div>
-            <div class="game-thumbnails">
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-                <div class="game-thumb"></div>
-            </div>
+        <!-- Секция с фотографией подарочной карты -->
+        <div class="photo-section">
+            <img src="https://i.postimg.cc/L5ZWhGH5/90e6639469a816169ab104e8bc2070a1-roblox-gift-card.png" alt="Roblox Gift Card" class="gift-card-image">
         </div>
         
         <!-- Дополнительная информация -->
