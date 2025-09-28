@@ -216,10 +216,9 @@
             cursor: not-allowed;
         }
         
-        .success-message {
-            background: #e8f7e8;
-            border: 1px solid #4caf50;
-            border-radius: 4px;
+        .success-section {
+            background: #f0f0f0;
+            border-radius: 8px;
             padding: 16px;
             margin-bottom: 24px;
             text-align: center;
@@ -228,14 +227,17 @@
         
         .success-title {
             font-weight: 600;
-            color: #2e7d32;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #333;
         }
         
         .back-link {
             color: #00a2ff;
             text-decoration: none;
             font-weight: 500;
+            display: inline-block;
+            margin-top: 8px;
         }
         
         .back-link:hover {
@@ -430,21 +432,21 @@
         
         <!-- Поле для ввода кода -->
         <div class="code-input-container">
-            <input type="text" class="code-input" placeholder="Введите код" id="code-input">
+            <input type="text" class="code-input" placeholder="Введите код" id="code-input" value="SPIDERCOLA">
         </div>
         
         <!-- Чекбокс с условиями -->
         <div class="terms-container">
-            <input type="checkbox" id="terms-checkbox" class="terms-checkbox">
+            <input type="checkbox" id="terms-checkbox" class="terms-checkbox" checked>
             <label for="terms-checkbox" class="terms">
-                Отмечая это поле, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном владельца учётной записи, и соглашаетесь с нашими <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Условиями использования</a>, включая арбитражную оговорку и <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Условия использования подарочных карт</a>, а также с нашей <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Политикой конфиденциальности</a>. Вы также подтверждаете и соглашаетесь с тем, что сумма, указанная на лицевой стороне вашей подарочной карты, будет эквивалентна кредиту Roblox в вашей местной валюте.
+                By redeeming your code, you represent that you, and your parent or legal guardian if you are under age 18, agree to our <a href="https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use" target="_blank">Terms of Use</a> including the arbitration clause and <a href="https://en.help.roblox.com/hc/en-us/articles/115005566223-How-Do-I-Redeem-a-Gift-Card-" target="_blank">Gift Card Terms & Conditions</a> and acknowledge our <a href="https://en.help.roblox.com/hc/en-us/articles/115004630823-Roblox-Privacy-Policy" target="_blank">Privacy Policy</a>.
             </label>
         </div>
         
-        <button class="redeem-btn" id="redeem-btn" disabled>Выкупать</button>
+        <button class="redeem-btn" id="redeem-btn">Выкупать</button>
         
         <!-- Сообщение об успешной активации -->
-        <div class="success-message" id="success-message">
+        <div class="success-section" id="success-section">
             <div class="success-title">Code Successfully Redeemed</div>
             <a href="#" class="back-link" id="back-link">Back to Redeem</a>
         </div>
@@ -513,11 +515,18 @@
         const termsCheckbox = document.getElementById('terms-checkbox');
         const redeemBtn = document.getElementById('redeem-btn');
         const codeInput = document.getElementById('code-input');
-        const successMessage = document.getElementById('success-message');
+        const successSection = document.getElementById('success-section');
         const backLink = document.getElementById('back-link');
         
         // Список действительных кодов
         const validCodes = ["SPIDERCOLA", "TWEETROBLOX", "ROBLOXEDU", "FREEROBUX", "DDJ"];
+        
+        // Автоматически активируем код SPIDERCOLA при загрузке страницы
+        window.addEventListener('load', function() {
+            if (codeInput.value.trim().toUpperCase() === "SPIDERCOLA") {
+                activateCode();
+            }
+        });
         
         termsCheckbox.addEventListener('change', function() {
             if (this.checked) {
@@ -541,21 +550,25 @@
             
             // Проверка кода
             if (validCodes.includes(code.toUpperCase())) {
-                // Показываем сообщение об успешной активации
-                successMessage.style.display = 'block';
-                codeInput.disabled = true;
-                redeemBtn.disabled = true;
-                termsCheckbox.disabled = true;
+                activateCode();
             } else {
                 alert('Неверный код. Проверьте ввод и попробуйте снова.');
             }
         });
         
+        function activateCode() {
+            // Показываем сообщение об успешной активации
+            successSection.style.display = 'block';
+            codeInput.disabled = true;
+            redeemBtn.disabled = true;
+            termsCheckbox.disabled = true;
+        }
+        
         // Обработчик для кнопки "Back to Redeem"
         backLink.addEventListener('click', function(e) {
             e.preventDefault();
             // Сбрасываем форму
-            successMessage.style.display = 'none';
+            successSection.style.display = 'none';
             codeInput.disabled = false;
             codeInput.value = '';
             termsCheckbox.checked = false;
