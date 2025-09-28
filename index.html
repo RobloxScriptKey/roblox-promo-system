@@ -3,185 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox - Активировать коды</title>
+    <title>Активировать коды Roblox</title>
+    <link rel="icon" type="image/x-icon" href="https://www.roblox.com/favicon.ico">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #000000;
+            box-sizing: border-box;
+            font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
-        .header {
-            background-color: #1e1e1e;
-            color: #ffffff;
-            padding: 10px;
+        
+        body {
+            background-color: #f7f7f7;
+            color: #1a1a1a;
+            line-height: 1.5;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+        
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e6e6e6;
+            padding: 12px 0;
+            margin-bottom: 24px;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin:  auto;
+            padding: 0 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
-        .header .logo {
-            font-size: 20px;
+        
+        .nav-logo {
+            height: 36px;
         }
-        .header nav {
+        
+        .nav-links {
             display: flex;
+            gap: 20px;
+            align-items: center;
         }
-        .header nav a {
-            color: #ffffff;
-            margin: 0 10px;
+        
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            color: #00a2ff;
+            background: #f0f8ff;
+        }
+        
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .search-box {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+            font-size: 13px;
+        }
+        
+        .login-btn {
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
             text-decoration: none;
         }
-        .header .icons {
-            display: flex;
+        
+        .container {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 24px;
         }
-        .header .icons div {
-            margin-left: 10px;
-        }
-        .main-content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .title {
+        
+        h1 {
             font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
         }
-        .subtitle {
-            font-size: 16px;
-            margin-bottom: 20px;
+        
+        .form-container {
+            background: white;
+            border-radius: 6px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
         }
+        
         .code-input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            background-color: #f8f8f8;
-            margin-bottom: 20px;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
             font-size: 16px;
-        }
-        .info-text {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-        .info-text a {
-            color: #00a2ff;
-            text-decoration: none;
-        }
-        .redeem-button {
-            background-color: #e0e0e0;
-            color: #000000;
-            padding: 12px;
             text-align: center;
-            border-radius: 4px;
-            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: #00a2ff;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-bottom: 40px;
+            margin-top: 20px;
         }
-        .additional-info {
-            background-color: #e0e0e0;
-            padding: 10px;
-            font-weight: bold;
-            margin-bottom: 20px;
+        
+        .result-panel {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 6px;
+            display: none;
         }
-        .help-links {
-            font-size: 14px;
-            line-height: 1.8;
-        }
-        .help-links a {
-            color: #00a2ff;
-            text-decoration: none;
-            display: block;
-        }
-        .promo-image {
-            background-color: #000000;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .promo-image img {
-            max-width: 100%;
-            height: auto;
-        }
-        .footer {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-        .footer a {
-            color: #000000;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        .language-selector {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .copyright {
-            text-align: center;
-            font-size: 12px;
-            color: #666666;
-            margin-bottom: 20px;
+        
+        .result-success {
+            background: #f0f9f0;
+            border: 1px solid #d0f0d0;
+            color: #2d5a2d;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">□</div>
-        <nav>
-            <a href="#">Поиск</a>
-            <a href="#">Личный</a>
-            <a href="#">Торговая площадка</a>
-            <a href="#">Создавать</a>
-            <a href="#">Robux</a>
-        </nav>
-        <div class="icons">
-            <div>🔔 552</div>
-            <div>👤</div>
-            <div>⚙️</div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://www.roblox.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Roblox_player_icon_black.svg/1200px-Roblox_player_icon_black.svg.png" alt="Roblox" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="https://www.roblox.com/discover#!/popular" class="nav-link">Диаграммы</a>
+                <a href="https://www.roblox.com/catalog" class="nav-link">Торговая площадка</a>
+                <a href="https://create.roblox.com" class="nav-link">Создавать</a>
+                <a href="https://www.roblox.com/gamecards" class="nav-link">Робуксы</a>
+            </div>
+            <div class="nav-actions">
+                <input type="text" class="search-box" placeholder="Поиск">
+                <a href="https://www.roblox.com/login" class="login-btn">Войти</a>
+            </div>
         </div>
-    </header>
-    <div class="main-content">
-        <h1 class="title">Активировать коды Roblox</h1>
-        <p class="subtitle">Введите ниже вашу подарочную карту, виртуальный предмет или промокод.</p>
-        <input type="text" class="code-input" placeholder="Код">
-        <p class="info-text">
-            Чтобы ввести код, вы подтверждаете, что вам исполнилось 18 лет, или что вы являетесь родителем или законным опекуном пользователя, которому принадлежит аккаунт Roblox. Условия использования и соглашение с пользователем доступны <a href="#">здесь</a>. Введите код в соответствующее поле, нажмите кнопку "Активировать", чтобы активировать код. В случае возникновения проблем обратитесь в службу поддержки Roblox в разделе сайте.
-        </p>
-        <div class="redeem-button">Активировать</div>
-        <div class="additional-info">Дополнительная информация</div>
-        <div class="help-links">
-            <a href="#">Как использовать подарочную карту (видео)</a>
-            <a href="#">Как использовать виртуальную подарочную карту</a>
-            <a href="#">Как использовать коды виртуальных предметов</a>
-            <a href="#">Как использовать промокоды</a>
-        </div>
-        <div class="promo-image">
-            <!-- Placeholder for the collage image. In a real recreation, replace with the actual URL or base64 encoded image from Roblox assets. For example, a similar promotional image might be found at Roblox CDN, but here's a placeholder. -->
-            <img src="https://images.rbxcdn.com/9c4b9e4e2a05a3e2b16c3f08f8f8a0a3-giftcard_redeem_promo.jpg" alt="ROBLOX Collage" onerror="this.src='https://via.placeholder.com/800x400?text=ROBLOX+Collage';">
+    </nav>
+
+    <div class="container">
+        <h1>Активировать коды Roblox</h1>
+        
+        <div class="form-container">
+            <form id="code-form">
+                <input type="text" class="code-input" placeholder="Введите код" required id="code-input">
+                <button type="submit" class="submit-btn">Активировать код</button>
+            </form>
+            
+            <div class="result-panel" id="result-panel">
+                <div id="result-message"></div>
+            </div>
         </div>
     </div>
-    <footer>
-        <div class="footer">
-            <a href="#">О нас</a>
-            <a href="#">Работа</a>
-            <a href="#">Блог</a>
-            <a href="#">Родители</a>
-            <a href="#">Поддержка карт</a>
-            <a href="#">Помощь</a>
-        </div>
-        <div class="language-selector">
-            <select>
-                <option>Русский</option>
-            </select>
-        </div>
-        <div class="copyright">
-            ©2015 Roblox Corporation. Roblox, the Roblox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.
-        </div>
-    </footer>
+
+    <script>
+        document.getElementById('code-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const code = document.getElementById('code-input').value;
+            const resultPanel = document.getElementById('result-panel');
+            const resultMessage = document.getElementById('result-message');
+            
+            if (code === "TWEETROBLOX") {
+                resultPanel.className = 'result-panel result-success';
+                resultPanel.style.display = 'block';
+                resultMessage.textContent = 'Код активирован! Награда: 100 Robux';
+            } else {
+                resultPanel.className = 'result-panel result-error';
+                resultPanel.style.display = 'block';
+                resultMessage.textContent = 'Неверный код';
+            }
+        });
+    </script>
 </body>
 </html>
